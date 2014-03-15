@@ -1,0 +1,39 @@
+﻿<Window x:Class="GameArcadia.Chicken"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chicken" Height="300" Width="300">
+
+    <DockPanel>
+
+        <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">
+
+            Chicken
+
+        </TextBlock>
+
+
+        <StackPanel DockPanel.Dock ="Left">
+
+            <Expander IsExpanded ="True" Header ="Main Menu">
+
+                <StackPanel>
+
+                    <Button>New Game</Button>
+
+                    <Button>Load Game</Button>
+
+                    <Button>Save Game</Button>
+
+                    <Button>Quit</Button>
+
+                </StackPanel>
+
+            </Expander>
+
+        </StackPanel>
+
+        <StackPanel Background ="White"/>
+
+    </DockPanel>
+
+</Window>
