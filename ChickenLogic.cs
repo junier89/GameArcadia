@@ -11,6 +11,7 @@ namespace GameArcadia
 		public void ChickenMain()
 		{
 			var thisTurn = new OneTurn();
+			var score = thisTurn.OneTurnMain();
 
 			/* Collect Score
 			 * Count Score

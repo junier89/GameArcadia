@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GameArcadia
 {
-	class OneTurn : ChickenLogic
+	class OneTurn
 	{
 		private IList<Die> CurrentDice { get; set; }
 		private int NumberOfRolls { get; set; }
@@ -27,15 +28,15 @@ namespace GameArcadia
 			 * Count rolls
 			 * Return Score
 			 */
-			return 0;
+			return 0;//Later will return the score for the turn
 		}
 
 		private void AddDice()
 		{
-			if (CurrentDice[5].Value <= 7 && CurrentDice[5].Value >= 0)//E: Can this be changed to "if not null"?
+			if (CurrentDice == null)
 			for (var i = 0; i < 6; i++)
 			{
-				CurrentDice.Add(new Die(i));
+				CurrentDice.Add(new Die(i));//Exception thrown here
 			}
 		}
 

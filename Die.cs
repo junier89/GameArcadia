@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameArcadia
 {
-	class Die : OneTurn
+	class Die
 	{
 			public int Value { get; set; }
 			public int Position { get; set; }
