@@ -10,12 +10,17 @@ namespace GameArcadia
 	{
 			public int Value { get; set; }
 			public int Position { get; set; }
-		
 
-		private int RollDie()
+		public Die(int position)
+		{
+			Value = 0;
+			Position = position;
+		}
+
+		public void RollDie()
 		{
 			var randomNumberGenerator = new Random();
-			return randomNumberGenerator.Next(1, 7);
+			this.Value = randomNumberGenerator.Next(1, 7);
 		}
 	}
 }
