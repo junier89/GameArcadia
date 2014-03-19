@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 namespace GameArcadia
 {
     /// <summary>
-    /// Interaction logic for Chicken.xaml
+    /// Interaction logic for ChickenWindow.xaml
     /// </summary>
-    public partial class Chicken : Window
+    public partial class ChickenWindow : Window
     {
         ChickenLogic thisGame = new ChickenLogic();
-        public Chicken()
+        public ChickenWindow()
         {
             thisGame.ChickenMain();
             InitializeComponent();

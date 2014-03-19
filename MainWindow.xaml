@@ -18,7 +18,7 @@ Game Arcadia
 
                 <StackPanel>
 
-                    <Button Click="LoadChicken">Play Chicken</Button>
+                    <Button Click="LoadChicken">Play ChickenWindow</Button>
 
                     <Button>Load Game</Button>
 

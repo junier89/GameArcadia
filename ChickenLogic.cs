@@ -6,38 +6,17 @@ using System.Threading.Tasks;
 
 namespace GameArcadia
 {
-    public class ChickenLogic
-    {
-        private int[,] SetOfCurrentDice { get; set; }
-        private int NumberOfRolls { get; set; }
-        private int Score { get; set; }
+	public class ChickenLogic
+	{
+		public void ChickenMain()
+		{
+			var thisTurn = new OneTurn();
 
-        public ChickenLogic()
-        {
-            NumberOfRolls = 0;
-            Score = 0;
-            SetOfCurrentDice =
-        }
-        }
-
-        public void ChickenMain()
-        {
-            
-        }
-
-        private int RollAllDice()
-        {
-            for (var i = 0; i < 7; i++)
-            {
-                setOfCurrentDice[i,0] = RollOneDie();
-            }
-        }
-
-        private int RollOneDie()
-        {
-            var randomNumberGenerator = new Random();
-            return randomNumberGenerator.Next(1, 7);
-        }
-
-    }
+			/* Collect Score
+			 * Count Score
+			 * Repeat
+			 * End
+			 */
+		}
+	}
 }
