@@ -4,24 +4,28 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using Label = System.Windows.Controls.Label;
 
 namespace GameArcadia
 {
-	class OneTurn
+	class Turn
 	{
 		private IList<Die> CurrentDice { get; set; }
 		private int NumberOfRolls { get; set; }
 		private int Score { get; set; }
 
-		public OneTurn()
+		public Turn()
 		{
 			NumberOfRolls = 0;
 			Score = 0;
+			CurrentDice = new List<Die>();
 		}
-		public int OneTurnMain()
+		public int TurnMain(Button button1)
 		{
 			AddDice();
-			RollDice();
+			//button1.Content = CurrentDice[0].Value;
+			//RollAllDice();
 			/*To do:
 			 * interface with the dice
 			 * Repeat
@@ -34,16 +38,17 @@ namespace GameArcadia
 		private void AddDice()
 		{
 			if (CurrentDice == null)
-			for (var i = 0; i < 6; i++)
 			{
-				CurrentDice.Add(new Die(i));//Exception thrown here
+				for (var i = 0; i < 6; i++)
+					CurrentDice.Add(new Die(i));
 			}
 		}
 
-		private void RollDice()
+		private void RollAllDice()
 		{
 			for (var i = 0; i < 6; i++)
 				CurrentDice[i].RollDie();
+			
 		}
 	}
 }

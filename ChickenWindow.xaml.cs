@@ -22,8 +22,9 @@ namespace GameArcadia
         public ChickenWindow()
 		{
 			var thisGame = new ChickenLogic();
-            thisGame.ChickenMain();
-            InitializeComponent();
-        }
+			InitializeComponent();
+			thisGame.ChickenMain(this.Dice1);
+	        
+		}
     }
 }

@@ -31,7 +31,6 @@ namespace GameArcadia
 			var chickenWindow = new ChickenWindow();
 			chickenWindow.Show();
 			this.Close();
-
 		}
 	}
 }
