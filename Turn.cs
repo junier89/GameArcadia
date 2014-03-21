@@ -11,20 +11,19 @@ namespace GameArcadia
 {
 	class Turn
 	{
-		private IList<Die> CurrentDice { get; set; }
-		private int NumberOfRolls { get; set; }
+		readonly Random randomNumberGenerator = new Random();
+		public IList<Die> CurrentDice { get; set; }
+		public int NumberOfSetsOfRolls { get; set; }
 		private int Score { get; set; }
 
 		public Turn()
 		{
-			NumberOfRolls = 0;
+			NumberOfSetsOfRolls = 0;
 			Score = 0;
 			CurrentDice = new List<Die>();
 		}
-		public int TurnMain(Button button1)
+		public int TurnMain()
 		{
-			AddDice();
-			//button1.Content = CurrentDice[0].Value;
 			//RollAllDice();
 			/*To do:
 			 * interface with the dice
@@ -35,19 +34,24 @@ namespace GameArcadia
 			return 0;//Later will return the score for the turn
 		}
 
-		private void AddDice()
+		private int SetOfRolls(int score)
 		{
-			if (CurrentDice == null)
+			return 0;
+		}
+
+		public void AddDice()
+		{
+			if (!CurrentDice.Any())
 			{
 				for (var i = 0; i < 6; i++)
 					CurrentDice.Add(new Die(i));
 			}
 		}
 
-		private void RollAllDice()
+		public void RollAllDice()
 		{
 			for (var i = 0; i < 6; i++)
-				CurrentDice[i].RollDie();
+				CurrentDice[i].RollDie(randomNumberGenerator);
 			
 		}
 	}

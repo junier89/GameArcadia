@@ -17,9 +17,8 @@ namespace GameArcadia
 			Position = position;
 		}
 
-		public void RollDie()
+		public void RollDie(Random randomNumberGenerator)
 		{
-			var randomNumberGenerator = new Random();
 			this.Value = randomNumberGenerator.Next(1, 7);
 		}
 	}

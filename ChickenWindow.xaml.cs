@@ -19,12 +19,32 @@ namespace GameArcadia
     /// </summary>
     public partial class ChickenWindow : Window
     {
+		ChickenLogic thisGame = new ChickenLogic();
         public ChickenWindow()
 		{
-			var thisGame = new ChickenLogic();
 			InitializeComponent();
-			thisGame.ChickenMain(this.Dice1);
-	        
 		}
+
+		private void NewGameClick(object sender, RoutedEventArgs e)
+		{
+			thisGame.StartOfAChickenGame(this.Dice1);//Can I get the buttons in an array/list?
+		}
+
+		private void RollTheDice(object sender, RoutedEventArgs e)
+		{
+			thisGame.Roll();
+			SetDiceValues();
+		}
+
+	    private void SetDiceValues()
+	    {
+		    var valuesOfTheDice = thisGame.FindDiceValues();
+			Dice1.Content = valuesOfTheDice[0];
+			Dice2.Content = valuesOfTheDice[1];
+			Dice3.Content = valuesOfTheDice[2];
+			Dice4.Content = valuesOfTheDice[3];
+			Dice5.Content = valuesOfTheDice[4];
+			Dice6.Content = valuesOfTheDice[5];
+	    }
     }
 }

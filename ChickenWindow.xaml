@@ -1,15 +1,22 @@
 ﻿<Window x:Class="GameArcadia.ChickenWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChickenWindow" Height="228" Width="403">
+        Title="ChickenWindow" Height="501" Width="388">
     <DockPanel>
-        <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">
-            ChickenWindow
+        <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
         </TextBlock>
         <StackPanel DockPanel.Dock ="Left">
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
-                    <Button>New Game</Button>
+                    <Button x:Name="NewGame" Click="NewGameClick">New Game</Button>
+                    <Button>Load Game</Button>
+                    <Button>Save Game</Button>
+                    <Button>Quit</Button>
+                </StackPanel>
+            </Expander>
+            <Expander IsExpanded ="True" Header ="Main Menu">
+                <StackPanel>
+                    <Button x:Name="Roll" Click="RollTheDice">Roll!</Button>
                     <Button>Load Game</Button>
                     <Button>Save Game</Button>
                     <Button>Quit</Button>
