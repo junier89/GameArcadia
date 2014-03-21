@@ -10,11 +10,13 @@ namespace GameArcadia
 	{
 			public int Value { get; set; }
 			public int Position { get; set; }
+			public bool IsClicked { get; set; }
 
 		public Die(int position)
 		{
 			Value = 0;
 			Position = position;
+			IsClicked = false;
 		}
 
 		public void RollDie(Random randomNumberGenerator)

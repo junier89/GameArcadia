@@ -28,6 +28,7 @@ namespace GameArcadia
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
 			thisGame.StartOfAChickenGame(this.Dice1);//Can I get the buttons in an array/list?
+			//This should make the dice visible
 		}
 
 		private void RollTheDice(object sender, RoutedEventArgs e)
@@ -46,5 +47,35 @@ namespace GameArcadia
 			Dice5.Content = valuesOfTheDice[4];
 			Dice6.Content = valuesOfTheDice[5];
 	    }
+
+		private void Click1(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(0);
+		}
+
+		private void Click2(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(1);
+		}
+
+		private void Click3(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(2);
+		}
+
+		private void Click4(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(3);
+		}
+
+		private void Click5(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(4);
+		}
+
+		private void Click6(object sender, RoutedEventArgs e)
+		{
+			thisGame.ChangeIfTheDieIsClicked(5);
+		}
     }
 }

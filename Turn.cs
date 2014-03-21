@@ -52,7 +52,11 @@ namespace GameArcadia
 		{
 			for (var i = 0; i < 6; i++)
 				CurrentDice[i].RollDie(randomNumberGenerator);
-			
+		}
+
+		public void ChangeIfTheDieIsClicked(int positionOfDie)
+		{
+			CurrentDice[positionOfDie].IsClicked = !CurrentDice[positionOfDie].IsClicked;
 		}
 	}
 }

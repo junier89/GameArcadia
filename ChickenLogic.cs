@@ -42,5 +42,10 @@ namespace GameArcadia
 				listOfDiceValues.Add(thisTurn.CurrentDice[i].Value);
 			return listOfDiceValues;
 		}
+
+		public void ChangeIfTheDieIsClicked(int positionOfDie)
+		{
+			thisTurn.ChangeIfTheDieIsClicked(positionOfDie);
+		}
 	}
 }
