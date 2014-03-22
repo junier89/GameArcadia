@@ -9,14 +9,14 @@ using Label = System.Windows.Controls.Label;
 
 namespace GameArcadia
 {
-	class Turn
+	class ChickenLogic
 	{
 		readonly Random randomNumberGenerator = new Random();
 		public IList<Die> CurrentDice { get; set; }
 		public int NumberOfSetsOfRolls { get; set; }
 		private int Score { get; set; }
 
-		public Turn()
+		public ChickenLogic()
 		{
 			NumberOfSetsOfRolls = 0;
 			Score = 0;

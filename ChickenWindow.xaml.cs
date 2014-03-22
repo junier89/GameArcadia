@@ -19,7 +19,7 @@ namespace GameArcadia
     /// </summary>
     public partial class ChickenWindow : Window
     {
-		Turn thisGame = new Turn();
+		ChickenLogic thisGame = new ChickenLogic();
         public ChickenWindow()
 		{
 			InitializeComponent();
