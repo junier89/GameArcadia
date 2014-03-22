@@ -69,7 +69,6 @@
     <Compile Include="ChickenWindow.xaml.cs">
       <DependentUpon>ChickenWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChickenLogic.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -19,7 +19,7 @@ namespace GameArcadia
     /// </summary>
     public partial class ChickenWindow : Window
     {
-		ChickenLogic thisGame = new ChickenLogic();
+		Turn thisGame = new Turn();
         public ChickenWindow()
 		{
 			InitializeComponent();
@@ -27,7 +27,7 @@ namespace GameArcadia
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			thisGame.StartOfAChickenGame(this.Dice0);//Can I get the buttons in an array/list?
+			//thisGame.StartOfAChickenGame();//Can I get the buttons in an array/list?
 			//This should make the dice visible
 		}
 
@@ -40,18 +40,18 @@ namespace GameArcadia
 	    private void SetDiceValues()
 	    {
 		    var valuesOfTheDice = thisGame.FindDiceValues();
-			Dice0.Content = valuesOfTheDice[0];
-			Dice1.Content = valuesOfTheDice[1];
-			Dice2.Content = valuesOfTheDice[2];
-			Dice3.Content = valuesOfTheDice[3];
-			Dice4.Content = valuesOfTheDice[4];
-			Dice5.Content = valuesOfTheDice[5];
+			Die0.Content = valuesOfTheDice[0];
+			Die1.Content = valuesOfTheDice[1];
+			Die2.Content = valuesOfTheDice[2];
+			Die3.Content = valuesOfTheDice[3];
+			Die4.Content = valuesOfTheDice[4];
+			Die5.Content = valuesOfTheDice[5];
 	    }
 		private void DiceClick(object sender, RoutedEventArgs e)
 		{
 			var button = (Button)sender;
-			var numberOfButtonClicked = Convert.ToInt32(button.Name.Substring(4, 1));
-			var theDieClicked = thisGame.ChangeWhenTheDieIsClicked(numberOfButtonClicked);
+			var numberOfButtonClicked = Convert.ToInt32(button.Name.Substring(3, 1));
+			var theDieClicked = thisGame.ChangeIfTheDieIsClicked(numberOfButtonClicked);
 			if (theDieClicked.Equals("TemporarilySetAside"))
 				button.BorderBrush = Brushes.Blue;
 			else if (theDieClicked.Equals("Unclicked"))

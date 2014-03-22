@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GameArcadia.ChickenWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChickenWindow" Height="501" Width="388">
+        Title="ChickenWindow" Height="327" Width="370">
     <DockPanel>
         <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
         </TextBlock>
@@ -17,19 +17,19 @@
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
                     <Button x:Name="Roll" Click="RollTheDice">Roll!</Button>
-                    <Button>Load Game</Button>
-                    <Button>Save Game</Button>
-                    <Button>Quit</Button>
+                    <Button>Set Aside</Button>
+                    <Button>Chicken Out</Button>
+                    <Button>Check Stats</Button>
                 </StackPanel>
             </Expander>
         </StackPanel>
         <StackPanel Background ="White"/>
-        <Button x:Name="Dice0" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="Dice1" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Dice2" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Dice3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Dice4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Dice5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die0" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="Die1" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die2" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="RandoLabel" Content="Nothing" Height="422" VerticalAlignment="Top"/>
 
     </DockPanel>
