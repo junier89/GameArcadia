@@ -24,12 +24,13 @@
             </Expander>
         </StackPanel>
         <StackPanel Background ="White"/>
-        <Button x:Name="Dice1" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click1"/>
-        <Button x:Name="Dice2" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click2"/>
-        <Button x:Name="Dice3" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click3"/>
-        <Button x:Name="Dice4" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click4"/>
-        <Button x:Name="Dice5" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click5"/>
-        <Button x:Name="Dice6" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click6"/>
+        <Button x:Name="Dice0" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Button x:Name="Dice1" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Button x:Name="Dice2" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Button x:Name="Dice3" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Button x:Name="Dice4" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Button x:Name="Dice5" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick"/>
+        <Label x:Name="RandoLabel" Content="Nothing" Height="422" VerticalAlignment="Top"/>
 
     </DockPanel>
 </Window>

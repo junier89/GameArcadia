@@ -27,7 +27,7 @@ namespace GameArcadia
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			thisGame.StartOfAChickenGame(this.Dice1);//Can I get the buttons in an array/list?
+			thisGame.StartOfAChickenGame(this.Dice0);//Can I get the buttons in an array/list?
 			//This should make the dice visible
 		}
 
@@ -40,47 +40,24 @@ namespace GameArcadia
 	    private void SetDiceValues()
 	    {
 		    var valuesOfTheDice = thisGame.FindDiceValues();
-			Dice1.Content = valuesOfTheDice[0];
-			Dice2.Content = valuesOfTheDice[1];
-			Dice3.Content = valuesOfTheDice[2];
-			Dice4.Content = valuesOfTheDice[3];
-			Dice5.Content = valuesOfTheDice[4];
-			Dice6.Content = valuesOfTheDice[5];
+			Dice0.Content = valuesOfTheDice[0];
+			Dice1.Content = valuesOfTheDice[1];
+			Dice2.Content = valuesOfTheDice[2];
+			Dice3.Content = valuesOfTheDice[3];
+			Dice4.Content = valuesOfTheDice[4];
+			Dice5.Content = valuesOfTheDice[5];
 	    }
-
-		private void Click1(object sender, RoutedEventArgs e)
+		private void DiceClick(object sender, RoutedEventArgs e)
 		{
-
-			var theDieClicked = thisGame.ChangeWhenTheDieIsClicked(0);
+			var button = (Button)sender;
+			var numberOfButtonClicked = Convert.ToInt32(button.Name.Substring(4, 1));
+			var theDieClicked = thisGame.ChangeWhenTheDieIsClicked(numberOfButtonClicked);
 			if (theDieClicked.Equals("TemporarilySetAside"))
-				Dice1.BorderBrush = Brushes.Blue;
+				button.BorderBrush = Brushes.Blue;
+			else if (theDieClicked.Equals("Unclicked"))
+				button.BorderBrush = Brushes.Black;
 			else
-				Dice1.BorderBrush = Brushes.Black;
-		}
-
-		private void Click2(object sender, RoutedEventArgs e)
-		{
-			thisGame.ChangeWhenTheDieIsClicked(1);
-		}
-
-		private void Click3(object sender, RoutedEventArgs e)
-		{
-			thisGame.ChangeWhenTheDieIsClicked(2);
-		}
-
-		private void Click4(object sender, RoutedEventArgs e)
-		{
-			thisGame.ChangeWhenTheDieIsClicked(3);
-		}
-
-		private void Click5(object sender, RoutedEventArgs e)
-		{
-			thisGame.ChangeWhenTheDieIsClicked(4);
-		}
-
-		private void Click6(object sender, RoutedEventArgs e)
-		{
-			thisGame.ChangeWhenTheDieIsClicked(5);
+				button.BorderBrush = Brushes.Red;
 		}
     }
 }
