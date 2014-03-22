@@ -55,7 +55,7 @@ namespace GameArcadia
 			if (theDieClicked.Equals("TemporarilySetAside"))
 				button.BorderBrush = Brushes.Blue;
 			else if (theDieClicked.Equals("Unclicked"))
-				button.BorderBrush = Brushes.Black;
+				button.BorderBrush = Brushes.Gray;
 			else
 				button.BorderBrush = Brushes.Red;
 		}
