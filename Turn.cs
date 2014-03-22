@@ -54,9 +54,13 @@ namespace GameArcadia
 				CurrentDice[i].RollDie(randomNumberGenerator);
 		}
 
-		public void ChangeIfTheDieIsClicked(int positionOfDie)
+		public string ChangeIfTheDieIsClicked(int positionOfDie)
 		{
-			CurrentDice[positionOfDie].IsClicked = !CurrentDice[positionOfDie].IsClicked;
+			if (CurrentDice[positionOfDie].Position.Equals("Unclicked"))
+				CurrentDice[positionOfDie].Position = "TemporarilySetAside";
+			else if (CurrentDice[positionOfDie].Position.Equals("TemporarilySetAside"))
+				CurrentDice[positionOfDie].Position = "Unclicked";
+			return CurrentDice[positionOfDie].Position;
 		}
 	}
 }

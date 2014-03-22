@@ -50,32 +50,37 @@ namespace GameArcadia
 
 		private void Click1(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(0);
+
+			var theDieClicked = thisGame.ChangeWhenTheDieIsClicked(0);
+			if (theDieClicked.Equals("TemporarilySetAside"))
+				Dice1.BorderBrush = Brushes.Blue;
+			else
+				Dice1.BorderBrush = Brushes.Black;
 		}
 
 		private void Click2(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(1);
+			thisGame.ChangeWhenTheDieIsClicked(1);
 		}
 
 		private void Click3(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(2);
+			thisGame.ChangeWhenTheDieIsClicked(2);
 		}
 
 		private void Click4(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(3);
+			thisGame.ChangeWhenTheDieIsClicked(3);
 		}
 
 		private void Click5(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(4);
+			thisGame.ChangeWhenTheDieIsClicked(4);
 		}
 
 		private void Click6(object sender, RoutedEventArgs e)
 		{
-			thisGame.ChangeIfTheDieIsClicked(5);
+			thisGame.ChangeWhenTheDieIsClicked(5);
 		}
     }
 }

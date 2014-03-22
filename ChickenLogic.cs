@@ -43,9 +43,9 @@ namespace GameArcadia
 			return listOfDiceValues;
 		}
 
-		public void ChangeIfTheDieIsClicked(int positionOfDie)
+		public string ChangeWhenTheDieIsClicked(int positionOfDie)
 		{
-			thisTurn.ChangeIfTheDieIsClicked(positionOfDie);
+			return thisTurn.ChangeIfTheDieIsClicked(positionOfDie);
 		}
 	}
 }

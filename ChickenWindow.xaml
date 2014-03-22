@@ -24,7 +24,7 @@
             </Expander>
         </StackPanel>
         <StackPanel Background ="White"/>
-        <Button x:Name="Dice1" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Background="{x:Null}" Click="Click1"/>
+        <Button x:Name="Dice1" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click1"/>
         <Button x:Name="Dice2" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click2"/>
         <Button x:Name="Dice3" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click3"/>
         <Button x:Name="Dice4" Content="0" Height="30" Margin="0,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="Click4"/>

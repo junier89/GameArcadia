@@ -9,13 +9,15 @@ namespace GameArcadia
 	class Die
 	{
 			public int Value { get; set; }
-			public int Position { get; set; }
+
+		public string Position { get; set; }
+//Unclicked;TemporarilySetAside;PermenatlySetAside;
 			public bool IsClicked { get; set; }
 
 		public Die(int position)
 		{
 			Value = 0;
-			Position = position;
+			Position = "Unclicked";
 			IsClicked = false;
 		}
 
