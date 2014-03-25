@@ -70,18 +70,6 @@ namespace GameArcadia
 				CurrentDice[positionOfDie].Position = "Unclicked";
 			return CurrentDice[positionOfDie].Position;
 		}
-
-		public void SetAsideDice()
-		{
-			for (var i = 0; i < 6; i++)
-				SetAsideDie(i);
-		}
-
-		public void SetAsideDie(int positionOfDie)
-		{
-			if (CurrentDice[positionOfDie].Position.Equals("TemporarilySetAside"))
-				CurrentDice[positionOfDie].Position = "PermenatlySetAside";
-		}
 		public void Roll()
 		{
 			if (NumberOfSetsOfRolls == 0)

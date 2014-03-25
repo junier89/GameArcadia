@@ -11,7 +11,7 @@ namespace GameArcadia
 			public int Value { get; set; }
 
 			public string Position { get; set; }
-//Unclicked;TemporarilySetAside;PermenatlySetAside;
+//Unclicked;TemporarilySetAside;PermanentlySetAside;
 
 		public Die(int position)
 		{

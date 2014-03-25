@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ChickenLogic.cs" />
+    <Compile Include="ScoringClass.cs" />
     <Page Include="ChickenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
