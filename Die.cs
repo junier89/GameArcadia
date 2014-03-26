@@ -8,12 +8,11 @@ namespace GameArcadia
 {
 	class Die
 	{
-			public int Value { get; set; }
+			public int Value { get; private set; }
 
 			public string Position { get; set; }
-//Unclicked;TemporarilySetAside;PermanentlySetAside;
 
-		public Die(int position)
+		public Die()
 		{
 			Value = 0;
 			Position = ScoringClass.UNCLICKED;
@@ -21,7 +20,7 @@ namespace GameArcadia
 
 		public void RollDie(Random randomNumberGenerator)
 		{
-			this.Value = randomNumberGenerator.Next(1, 7);
+			Value = randomNumberGenerator.Next(1, 7);
 		}
 	}
 }

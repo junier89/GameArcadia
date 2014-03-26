@@ -3,7 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;	
 
 namespace GameArcadia
 {
@@ -11,7 +11,7 @@ namespace GameArcadia
 	{
 		//Need to score each method and call the method
 
-		public const string PERMANENTALY_SET_ASIDE = "PermanentlySetAside";
+		private const string PERMANENTALY_SET_ASIDE = "PermanentlySetAside";
 
 		public const string UNCLICKED = "Unclicked";
 
@@ -132,7 +132,7 @@ namespace GameArcadia
 									SetOneToPermanentlySetAside(thisGame, i);
 									SetOneToPermanentlySetAside(thisGame, j);
 									SetOneToPermanentlySetAside(thisGame, k);
-									var scoreToBeAdded = "";
+									string scoreToBeAdded;
 									if (thisGame.CurrentDice[i].Value == 1)
 										scoreToBeAdded = "1000 ";
 									else

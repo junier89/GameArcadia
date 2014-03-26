@@ -54,7 +54,7 @@ namespace GameArcadia
 			var button = (Button)sender;
 			ChangeColorOnClickToCorrectColor(button);
 		}
-		public void ChangeColorOnClickToCorrectColor(Button thisButton)
+		private void ChangeColorOnClickToCorrectColor(Button thisButton)
 		{
 			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
 			var theDieClicked = thisGame.ChangeIfTheDieIsClicked(numberOfButtonClicked);
@@ -66,7 +66,7 @@ namespace GameArcadia
 				thisButton.BorderBrush = Brushes.Red;
 		}
 
-		public void ChangeAllColorsToCorrectColor()
+	    private void ChangeAllColorsToCorrectColor()
 		{
 			ChangeDieToCorrectColor(Die0);
 			ChangeDieToCorrectColor(Die1);
@@ -76,7 +76,7 @@ namespace GameArcadia
 			ChangeDieToCorrectColor(Die5);
 		}
 
-	    public void ChangeDieToCorrectColor(Button thisButton)
+	    private void ChangeDieToCorrectColor(Button thisButton)
 		{
 			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
 			if (thisGame.FindThePositionOfTheDie(numberOfButtonClicked).Equals(ScoringClass.TEMPORARILY_SET_ASIDE))

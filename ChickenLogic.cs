@@ -12,8 +12,8 @@ namespace GameArcadia
 	class ChickenLogic
 	{
 		readonly Random randomNumberGenerator = new Random();
-		public IList<Die> CurrentDice { get; set; }
-		public int NumberOfSetsOfRolls { get; set; }
+		public IList<Die> CurrentDice { get; private set; }
+		private int NumberOfSetsOfRolls { get; set; }
 		public string Score { get; set; }
 
 		public ChickenLogic()
@@ -29,12 +29,6 @@ namespace GameArcadia
 				listOfDiceValues.Add(CurrentDice[i].Value);
 			return listOfDiceValues;
 		}
-			/*To do:
-			 * interface with the dice
-			 * Repeat
-			 * Count rolls
-			 * Return Score
-			 */
 			/* Collect Score
 			 * Count Score
 			 * Repeat
@@ -42,21 +36,16 @@ namespace GameArcadia
 			 * Return to the MainWindow
 			 */
 
-		private int SetOfRolls(int score)
-		{
-			return 0;
-		}
-
-		public void AddDice()
+		private void AddDice()
 		{
 			if (!CurrentDice.Any())
 			{
 				for (var i = 0; i < 6; i++)
-					CurrentDice.Add(new Die(i));
+					CurrentDice.Add(new Die());
 			}
 		}
 
-		public void RollAllDice()
+		private void RollAllDice()
 		{
 			for (var i = 0; i < 6; i++)
 				CurrentDice[i].RollDie(randomNumberGenerator);
