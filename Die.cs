@@ -16,7 +16,7 @@ namespace GameArcadia
 		public Die(int position)
 		{
 			Value = 0;
-			Position = "Unclicked";
+			Position = ScoringClass.UNCLICKED;
 		}
 
 		public void RollDie(Random randomNumberGenerator)

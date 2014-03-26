@@ -10,6 +10,12 @@ namespace GameArcadia
 	static class ScoringClass
 	{
 		//Need to score each method and call the method
+
+		public const string PERMANENTALY_SET_ASIDE = "PermanentlySetAside";
+
+		public const string UNCLICKED = "Unclicked";
+
+		public const string TEMPORARILY_SET_ASIDE = "TemporarilySetAside";
 		public static void ScoreAllSetAsideDice(ChickenLogic thisGame)
 		{
 			if (NumberToBeChecked(thisGame) == 6)
@@ -21,14 +27,14 @@ namespace GameArcadia
 			if (NumberToBeChecked(thisGame) >= 3)
 				CheckForThreeOfAKind(thisGame);
 			CheckForSingles(thisGame);
-
+			SetDiceToUnclicked(thisGame);
 		}
 
 		private static int NumberToBeChecked(ChickenLogic thisGame)
 		{
 			var numberSetAside = 0;
 			for (var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals("TemporarilySetAside"))
+				if (thisGame.CurrentDice[i].Position.Equals(TEMPORARILY_SET_ASIDE))
 					numberSetAside++;
 			return numberSetAside;
 		}
@@ -50,6 +56,7 @@ namespace GameArcadia
 			if (isSixOfAKind)
 			{
 				SetAllToPermanentlySetAside(thisGame);
+				thisGame.Score += "5000";
 			}
 		}
 
@@ -79,6 +86,7 @@ namespace GameArcadia
 			if (quantityOfFirstValue == 2 && quantityOfSecondValue == 2 && quantityOfThirdValue == 2)
 			{
 				SetAllToPermanentlySetAside(thisGame);
+				thisGame.Score +="1500 ";
 			}
 		}
 
@@ -96,6 +104,7 @@ namespace GameArcadia
 			if (thereIsOneOfEachValue)
 			{
 				SetAllToPermanentlySetAside(thisGame);
+				thisGame.Score +="3000 ";
 			}
 		}
 
@@ -107,32 +116,42 @@ namespace GameArcadia
 
 		private static void SetOneToPermanentlySetAside(ChickenLogic thisGame, int dieNumber)
 		{
-			thisGame.CurrentDice[dieNumber].Position = "PermanentlySetAside";
+			thisGame.CurrentDice[dieNumber].Position = PERMANENTALY_SET_ASIDE;
 		}
 		private static void CheckForThreeOfAKind(ChickenLogic thisGame)
 		{
 			for (var i = 0; i < 4; i++)
-				if (thisGame.CurrentDice[i].Position.Equals("TemporarilySetAside"))
+				if (thisGame.CurrentDice[i].Position.Equals(TEMPORARILY_SET_ASIDE))
 					for (var j = i + 1; j < 5; j++)
-						if (thisGame.CurrentDice[j].Position.Equals("TemporarilySetAside") 
+						if (thisGame.CurrentDice[j].Position.Equals(TEMPORARILY_SET_ASIDE) 
 							&& thisGame.CurrentDice[i].Value == thisGame.CurrentDice[j].Value)
 							for (var k = j + 1; k < 6; k++)
-								if (thisGame.CurrentDice[k].Position.Equals("TemporarilySetAside")
+								if (thisGame.CurrentDice[k].Position.Equals(TEMPORARILY_SET_ASIDE)
 								    && thisGame.CurrentDice[i].Value == thisGame.CurrentDice[k].Value)
 								{
 									SetOneToPermanentlySetAside(thisGame, i);
 									SetOneToPermanentlySetAside(thisGame, j);
 									SetOneToPermanentlySetAside(thisGame, k);
+									var scoreToBeAdded = "";
+									if (thisGame.CurrentDice[i].Value == 1)
+										scoreToBeAdded = "1000 ";
+									else
+										scoreToBeAdded = Convert.ToString(thisGame.CurrentDice[i].Value * 100) + " ";
+									thisGame.Score += scoreToBeAdded;
 								}
 		}
 
 		private static void CheckForSingles(ChickenLogic thisGame)
 		{
 			for (var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals("TemporarilySetAside")
+				if (thisGame.CurrentDice[i].Position.Equals(TEMPORARILY_SET_ASIDE)
 				    && (thisGame.CurrentDice[i].Value == 1 || thisGame.CurrentDice[i].Value == 5))
 				{
 					SetOneToPermanentlySetAside(thisGame, i);
+					if (thisGame.CurrentDice[i].Value == 1)
+						thisGame.Score += "100 ";
+					else
+						thisGame.Score += "50 ";
 				}
 
 		}
@@ -149,7 +168,7 @@ namespace GameArcadia
 		private static void SetDiceToUnclicked(ChickenLogic thisGame)
 		{
 			for ( var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals("TemporarilySetAside"))
+				if (thisGame.CurrentDice[i].Position.Equals(TEMPORARILY_SET_ASIDE))
 					thisGame.ChangeTheDiesClickedValue(i);
 		}
 	}

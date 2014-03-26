@@ -35,6 +35,8 @@ namespace GameArcadia
 		{
 			thisGame.Roll();
 			SetDiceValues();
+			ChangeAllColorsToCorrectColor();
+			TempScoringLabel.Content = Convert.ToString(thisGame.Score);
 		}
 
 	    private void SetDiceValues()
@@ -56,9 +58,9 @@ namespace GameArcadia
 		{
 			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
 			var theDieClicked = thisGame.ChangeIfTheDieIsClicked(numberOfButtonClicked);
-			if (theDieClicked.Equals("TemporarilySetAside"))
+			if (theDieClicked.Equals(ScoringClass.TEMPORARILY_SET_ASIDE))
 				thisButton.BorderBrush = Brushes.Blue;
-			else if (theDieClicked.Equals("Unclicked"))
+			else if (theDieClicked.Equals(ScoringClass.UNCLICKED))
 				thisButton.BorderBrush = Brushes.Gray;
 			else
 				thisButton.BorderBrush = Brushes.Red;
@@ -66,18 +68,23 @@ namespace GameArcadia
 
 		public void ChangeAllColorsToCorrectColor()
 		{
-			var diceArray = new Button[]{Die0, Die1, Die2, Die3, Die4, Die5};
-			foreach (Button thisButton in diceArray)
-			{
-				var count = 0;
-				if (thisGame.FindThePositionOfTheDie(count).Equals("TemporarilySetAside"))//Check syntax here
-					thisButton.BorderBrush = Brushes.Blue;
-				else if (thisGame.FindThePositionOfTheDie(count).Equals("Unclicked"))//Check syntax here
-					thisButton.BorderBrush = Brushes.Gray;
-				else
-					thisButton.BorderBrush = Brushes.Red;
-				count++;
-			}
+			ChangeDieToCorrectColor(Die0);
+			ChangeDieToCorrectColor(Die1);
+			ChangeDieToCorrectColor(Die2);
+			ChangeDieToCorrectColor(Die3);
+			ChangeDieToCorrectColor(Die4);
+			ChangeDieToCorrectColor(Die5);
 		}
+
+	    public void ChangeDieToCorrectColor(Button thisButton)
+		{
+			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
+			if (thisGame.FindThePositionOfTheDie(numberOfButtonClicked).Equals(ScoringClass.TEMPORARILY_SET_ASIDE))
+				thisButton.BorderBrush = Brushes.Blue;
+			else if (thisGame.FindThePositionOfTheDie(numberOfButtonClicked).Equals(ScoringClass.UNCLICKED))
+				thisButton.BorderBrush = Brushes.Gray;
+			else
+				thisButton.BorderBrush = Brushes.Red;
+	    }
     }
 }

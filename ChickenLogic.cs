@@ -14,12 +14,12 @@ namespace GameArcadia
 		readonly Random randomNumberGenerator = new Random();
 		public IList<Die> CurrentDice { get; set; }
 		public int NumberOfSetsOfRolls { get; set; }
-		private int Score { get; set; }
+		public string Score { get; set; }
 
 		public ChickenLogic()
 		{
-			NumberOfSetsOfRolls = 0;
-			Score = 0;
+			NumberOfSetsOfRolls = -1;
+			Score = "";
 			CurrentDice = new List<Die>();
 		}
 		public List<int> FindDiceValues()
@@ -62,6 +62,13 @@ namespace GameArcadia
 				CurrentDice[i].RollDie(randomNumberGenerator);
 		}
 
+		private void RollUnclickedDice()
+		{
+			for (var i = 0; i < 6; i++)
+				if (CurrentDice[i].Position.Equals(ScoringClass.UNCLICKED))
+					CurrentDice[i].RollDie(randomNumberGenerator);
+		}
+
 		public string ChangeIfTheDieIsClicked(int positionOfDie)
 		{
 			ChangeTheDiesClickedValue(positionOfDie);
@@ -70,10 +77,10 @@ namespace GameArcadia
 
 		public void ChangeTheDiesClickedValue(int positionOfDie)
 		{
-			if (CurrentDice[positionOfDie].Position.Equals("Unclicked"))
-				CurrentDice[positionOfDie].Position = "TemporarilySetAside";
-			else if (CurrentDice[positionOfDie].Position.Equals("TemporarilySetAside"))
-				CurrentDice[positionOfDie].Position = "Unclicked";
+			if (CurrentDice[positionOfDie].Position.Equals(ScoringClass.UNCLICKED))
+				CurrentDice[positionOfDie].Position = ScoringClass.TEMPORARILY_SET_ASIDE;
+			else if (CurrentDice[positionOfDie].Position.Equals(ScoringClass.TEMPORARILY_SET_ASIDE))
+				CurrentDice[positionOfDie].Position = ScoringClass.UNCLICKED;
 		}
 
 		public string FindThePositionOfTheDie(int positionOfDie)
@@ -82,17 +89,22 @@ namespace GameArcadia
 		}
 		public void Roll()
 		{
-			if (NumberOfSetsOfRolls == 0)
+			if (NumberOfSetsOfRolls == -1)
 			{
 				AddDice();
+				NumberOfSetsOfRolls++;
+			}
+			if (NumberOfSetsOfRolls == 0)
+			{
 				RollAllDice();
 				NumberOfSetsOfRolls++;
 			}
-			else if (NumberOfSetsOfRolls > 1)
+			else if (NumberOfSetsOfRolls > 0)
 			{
-				//Add logic so that it can determine how many to roll and to keep score.
+				ScoringClass.ScoreAllSetAsideDice(this);
+				RollUnclickedDice();
+				NumberOfSetsOfRolls++;
 			}
 		}
-
 	}
 }

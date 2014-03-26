@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GameArcadia.ChickenWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChickenWindow" Height="327" Width="370">
+        Title="ChickenWindow" Height="327" Width="400">
     <DockPanel>
         <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
         </TextBlock>
@@ -30,7 +30,11 @@
         <Button x:Name="Die3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="RandoLabel" Content="Nothing" Height="422" VerticalAlignment="Top"/>
-
+        <StackPanel>
+            <Label x:Name="CurrentScoreLabel" Content="Current Score:" VerticalAlignment="Top"></Label>
+            <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top"/>
+            <Label x:Name="TotalScoreLabel" Content="TotalScore:" Height="50" VerticalAlignment="Top"/>
+            <Label x:Name="TotalScore" Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
+        </StackPanel>
     </DockPanel>
 </Window>
