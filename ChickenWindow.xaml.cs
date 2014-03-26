@@ -50,14 +50,34 @@ namespace GameArcadia
 		private void DiceClick(object sender, RoutedEventArgs e)
 		{
 			var button = (Button)sender;
-			var numberOfButtonClicked = Convert.ToInt32(button.Name.Substring(3, 1));
+			ChangeColorOnClickToCorrectColor(button);
+		}
+		public void ChangeColorOnClickToCorrectColor(Button thisButton)
+		{
+			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
 			var theDieClicked = thisGame.ChangeIfTheDieIsClicked(numberOfButtonClicked);
 			if (theDieClicked.Equals("TemporarilySetAside"))
-				button.BorderBrush = Brushes.Blue;
+				thisButton.BorderBrush = Brushes.Blue;
 			else if (theDieClicked.Equals("Unclicked"))
-				button.BorderBrush = Brushes.Gray;
+				thisButton.BorderBrush = Brushes.Gray;
 			else
-				button.BorderBrush = Brushes.Red;
+				thisButton.BorderBrush = Brushes.Red;
+		}
+
+		public void ChangeAllColorsToCorrectColor()
+		{
+			var diceArray = new Button[]{Die0, Die1, Die2, Die3, Die4, Die5};
+			foreach (Button thisButton in diceArray)
+			{
+				var count = 0;
+				if (thisGame.FindThePositionOfTheDie(count).Equals("TemporarilySetAside"))//Check syntax here
+					thisButton.BorderBrush = Brushes.Blue;
+				else if (thisGame.FindThePositionOfTheDie(count).Equals("Unclicked"))//Check syntax here
+					thisButton.BorderBrush = Brushes.Gray;
+				else
+					thisButton.BorderBrush = Brushes.Red;
+				count++;
+			}
 		}
     }
 }

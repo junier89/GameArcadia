@@ -75,6 +75,11 @@ namespace GameArcadia
 			else if (CurrentDice[positionOfDie].Position.Equals("TemporarilySetAside"))
 				CurrentDice[positionOfDie].Position = "Unclicked";
 		}
+
+		public string FindThePositionOfTheDie(int positionOfDie)
+		{
+			return CurrentDice[positionOfDie].Position;
+		}
 		public void Roll()
 		{
 			if (NumberOfSetsOfRolls == 0)
