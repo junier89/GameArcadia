@@ -21,6 +21,7 @@ namespace GameArcadia
 			if (NumberToBeChecked(thisGame) >= 3)
 				CheckForThreeOfAKind(thisGame);
 			CheckForSingles(thisGame);
+
 		}
 
 		private static int NumberToBeChecked(ChickenLogic thisGame)
@@ -143,6 +144,13 @@ namespace GameArcadia
 				if (thisGame.CurrentDice[i].Value == valueToBeChecked)
 					quantityOfValueToBeChecked++;
 			return quantityOfValueToBeChecked;
+		}
+
+		private static void SetDiceToUnclicked(ChickenLogic thisGame)
+		{
+			for ( var i = 0; i < 6; i++)
+				if (thisGame.CurrentDice[i].Position.Equals("TemporarilySetAside"))
+					thisGame.ChangeTheDiesClickedValue(i);
 		}
 	}
 }

@@ -64,11 +64,16 @@ namespace GameArcadia
 
 		public string ChangeIfTheDieIsClicked(int positionOfDie)
 		{
+			ChangeTheDiesClickedValue(positionOfDie);
+			return CurrentDice[positionOfDie].Position;
+		}
+
+		public void ChangeTheDiesClickedValue(int positionOfDie)
+		{
 			if (CurrentDice[positionOfDie].Position.Equals("Unclicked"))
 				CurrentDice[positionOfDie].Position = "TemporarilySetAside";
 			else if (CurrentDice[positionOfDie].Position.Equals("TemporarilySetAside"))
 				CurrentDice[positionOfDie].Position = "Unclicked";
-			return CurrentDice[positionOfDie].Position;
 		}
 		public void Roll()
 		{

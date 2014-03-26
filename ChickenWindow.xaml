@@ -17,7 +17,7 @@
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
                     <Button x:Name="Roll" Click="RollTheDice">Roll!</Button>
-                    <Button>Set Aside</Button>
+                    <Button>Stop!</Button>
                     <Button>Chicken Out</Button>
                     <Button>Check Stats</Button>
                 </StackPanel>
