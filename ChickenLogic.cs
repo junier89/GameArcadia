@@ -67,7 +67,7 @@ namespace GameArcadia
 				CurrentDice[positionOfDie].Position = DieState.Unclicked;
 		}
 
-		public DieState FindThePositionOfTheDie(int positionOfDie)
+		public DieState FindDiePosition(int positionOfDie)
 		{
 			return CurrentDice[positionOfDie].Position;
 		}

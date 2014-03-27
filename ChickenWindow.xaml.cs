@@ -8,7 +8,7 @@ namespace GameArcadia
 {
 	public partial class ChickenWindow
 	{
-		readonly ChickenLogic thisGame = new ChickenLogic();
+		readonly ChickenLogic chickenLogic = new ChickenLogic();
 		public ChickenWindow()
 		{
 			InitializeComponent();
@@ -16,21 +16,21 @@ namespace GameArcadia
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			//thisGame.StartOfAChickenGame();//Can I get the buttons in an array/list?
+			//chickenLogic.StartOfAChickenGame();//Can I get the buttons in an array/list?
 			//This should make the dice visible
 		}
 
 		private void RollTheDice(object sender, RoutedEventArgs e)
 		{
-			thisGame.Roll();
+			chickenLogic.Roll();
 			SetDiceValues();
 			ChangeAllColorsToCorrectColor();
-			TempScoringLabel.Content = Convert.ToString(thisGame.Score);
+			TempScoringLabel.Content = Convert.ToString(chickenLogic.Score);
 		}
 
 		private void SetDiceValues()
 		{
-			var valuesOfTheDice = thisGame.FindDiceValues();
+			var valuesOfTheDice = chickenLogic.FindDiceValues();
 			Die0.Content = valuesOfTheDice[0];
 			Die1.Content = valuesOfTheDice[1];
 			Die2.Content = valuesOfTheDice[2];
@@ -38,21 +38,39 @@ namespace GameArcadia
 			Die4.Content = valuesOfTheDice[4];
 			Die5.Content = valuesOfTheDice[5];
 		}
-		private void DiceClick(object sender, RoutedEventArgs e)
+		private void DiceClickOne(object sender, RoutedEventArgs e)
 		{
-			var button = (Button)sender;
-			ChangeColorOnClickToCorrectColor(button);
+			ChangeColorOnClickToCorrectColor(sender as Button, 0);
 		}
-		private void ChangeColorOnClickToCorrectColor(Button thisButton)
+
+		private void DiceClickTwo(object sender, RoutedEventArgs e)
 		{
-			var numberOfButtonClicked = Convert.ToInt32(thisButton.Name.Substring(3, 1));
-			var theDieClicked = thisGame.ChangeIfTheDieIsClicked(numberOfButtonClicked);
-			if (theDieClicked.Equals(DieState.TemporarilySetAside))
-				thisButton.BorderBrush = Brushes.Blue;
-			else if (theDieClicked.Equals(DieState.Unclicked))
-				thisButton.BorderBrush = Brushes.Gray;
-			else
-				thisButton.BorderBrush = Brushes.Red;
+			ChangeColorOnClickToCorrectColor(sender as Button, 1);
+		}
+
+		private void DiceClickThree(object sender, RoutedEventArgs e)
+		{
+			ChangeColorOnClickToCorrectColor(sender as Button, 2);
+		}
+
+		private void DiceClickFour(object sender, RoutedEventArgs e)
+		{
+			ChangeColorOnClickToCorrectColor(sender as Button, 3);
+		}
+
+		private void DiceClickFive(object sender, RoutedEventArgs e)
+		{
+			ChangeColorOnClickToCorrectColor(sender as Button, 4);
+		}
+
+		private void DiceClickSix(object sender, RoutedEventArgs e)
+		{
+			ChangeColorOnClickToCorrectColor(sender as Button, 5);
+		}
+		private void ChangeColorOnClickToCorrectColor(Button button, int index)
+		{
+			var postClickDieState = chickenLogic.ChangeIfTheDieIsClicked(index);
+			button.BorderBrush = GetColorForButtonBorder(postClickDieState);
 		}
 
 		private void ChangeAllColorsToCorrectColor()
@@ -61,12 +79,23 @@ namespace GameArcadia
 			for (var index = 0; index < diceButtons.Count(); ++index)
 			{
 				var diceButton = diceButtons[index];
-				if (thisGame.FindThePositionOfTheDie(index).Equals(DieState.TemporarilySetAside))
-					diceButton.BorderBrush = Brushes.Blue;
-				else if (thisGame.FindThePositionOfTheDie(index).Equals(DieState.Unclicked))
-					diceButton.BorderBrush = Brushes.Gray;
-				else
-					diceButton.BorderBrush = Brushes.Red;
+				var diePosition = chickenLogic.FindDiePosition(index);
+				diceButton.BorderBrush = GetColorForButtonBorder(diePosition);
+			}
+		}
+
+		private Brush GetColorForButtonBorder(DieState diePosition)
+		{
+			switch (diePosition)
+			{
+				case DieState.Unclicked:
+					return Brushes.Blue;
+				case DieState.TemporarilySetAside:
+					return Brushes.Gray;
+				case DieState.PermanentlySetAside:
+					return Brushes.Red;
+				default:
+					throw new InvalidOperationException("Invalid die state encountered.");
 			}
 		}
 	}
