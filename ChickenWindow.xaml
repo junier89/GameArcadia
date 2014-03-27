@@ -8,7 +8,7 @@
         <StackPanel DockPanel.Dock ="Left">
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
-                    <Button x:Name="NewGame" Click="NewGameClick">New Game</Button>
+                    <Button Click="NewGameClick">New Game</Button>
                     <Button>Load Game</Button>
                     <Button>Save Game</Button>
                     <Button>Quit</Button>
@@ -16,7 +16,7 @@
             </Expander>
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
-                    <Button x:Name="Roll" Click="RollTheDice">Roll!</Button>
+                    <Button Click="RollTheDice">Roll!</Button>
                     <Button>Stop!</Button>
                     <Button>Chicken Out</Button>
                     <Button>Check Stats</Button>
@@ -31,10 +31,10 @@
         <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel>
-            <Label x:Name="CurrentScoreLabel" Content="Current Score:" VerticalAlignment="Top"></Label>
+            <Label Content="Current Score:" VerticalAlignment="Top"></Label>
             <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top"/>
-            <Label x:Name="TotalScoreLabel" Content="TotalScore:" Height="50" VerticalAlignment="Top"/>
-            <Label x:Name="TotalScore" Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
+            <Label Content="TotalScore:" Height="50" VerticalAlignment="Top"/>
+            <Label Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
         </StackPanel>
     </DockPanel>
 </Window>

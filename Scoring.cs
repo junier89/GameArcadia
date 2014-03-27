@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace GameArcadia
 {
 	static class ScoringClass
@@ -126,7 +125,7 @@ namespace GameArcadia
 									if (thisGame.CurrentDice[i].Value == 1)
 										scoreToBeAdded = "1000 ";
 									else
-										scoreToBeAdded = Convert.ToString(thisGame.CurrentDice[i].Value * 100) + " ";
+										scoreToBeAdded = (thisGame.CurrentDice[i].Value * 100) + " ";
 									thisGame.Score += scoreToBeAdded;
 								}
 		}
