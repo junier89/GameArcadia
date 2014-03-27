@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameArcadia
 {
 	class Die
 	{
-			public int Value { get; private set; }
+		public int Value { get; private set; }
 
-			public string Position { get; set; }
+		public DieState Position { get; set; }
 
 		public Die()
 		{
 			Value = 0;
-			Position = ScoringClass.UNCLICKED;
+			Position = DieState.Unclicked;
 		}
 
 		public void RollDie(Random randomNumberGenerator)

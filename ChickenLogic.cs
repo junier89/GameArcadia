@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using Label = System.Windows.Controls.Label;
 
 namespace GameArcadia
 {
@@ -54,11 +49,11 @@ namespace GameArcadia
 		private void RollUnclickedDice()
 		{
 			for (var i = 0; i < 6; i++)
-				if (CurrentDice[i].Position.Equals(ScoringClass.UNCLICKED))
+				if (CurrentDice[i].Position.Equals(DieState.Unclicked))
 					CurrentDice[i].RollDie(randomNumberGenerator);
 		}
 
-		public string ChangeIfTheDieIsClicked(int positionOfDie)
+		public DieState ChangeIfTheDieIsClicked(int positionOfDie)
 		{
 			ChangeTheDiesClickedValue(positionOfDie);
 			return CurrentDice[positionOfDie].Position;
@@ -66,13 +61,13 @@ namespace GameArcadia
 
 		public void ChangeTheDiesClickedValue(int positionOfDie)
 		{
-			if (CurrentDice[positionOfDie].Position.Equals(ScoringClass.UNCLICKED))
-				CurrentDice[positionOfDie].Position = ScoringClass.TEMPORARILY_SET_ASIDE;
-			else if (CurrentDice[positionOfDie].Position.Equals(ScoringClass.TEMPORARILY_SET_ASIDE))
-				CurrentDice[positionOfDie].Position = ScoringClass.UNCLICKED;
+			if (CurrentDice[positionOfDie].Position.Equals(DieState.Unclicked))
+				CurrentDice[positionOfDie].Position = DieState.TemporarilySetAside;
+			else if (CurrentDice[positionOfDie].Position.Equals(DieState.TemporarilySetAside))
+				CurrentDice[positionOfDie].Position = DieState.Unclicked;
 		}
 
-		public string FindThePositionOfTheDie(int positionOfDie)
+		public DieState FindThePositionOfTheDie(int positionOfDie)
 		{
 			return CurrentDice[positionOfDie].Position;
 		}
