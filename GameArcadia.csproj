@@ -56,6 +56,7 @@
     <Compile Include="ChickenLogic.cs" />
     <Compile Include="DieState.cs" />
     <Compile Include="Scoring.cs" />
+    <Compile Include="ScratchCheck.cs" />
     <Page Include="ChickenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
