@@ -79,14 +79,14 @@ namespace GameArcadia
 			for (var index = 0; index < diceButtons.Count(); ++index)
 			{
 				var diceButton = diceButtons[index];
-				var dieState = chickenLogic.FindDieState(index);
-				diceButton.BorderBrush = GetColorForButtonBorder(dieState);
+				var diePosition = chickenLogic.FindDiePosition(index);
+				diceButton.BorderBrush = GetColorForButtonBorder(diePosition);
 			}
 		}
 
-		private Brush GetColorForButtonBorder(DieState dieState)
+		private Brush GetColorForButtonBorder(DieState diePosition)
 		{
-			switch (dieState)
+			switch (diePosition)
 			{
 				case DieState.Unclicked:
 					return Brushes.Blue;

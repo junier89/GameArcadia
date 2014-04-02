@@ -6,12 +6,12 @@ namespace GameArcadia
 	{
 		public int Value { get; private set; }
 
-		public DieState State { get; set; }
+		public DieState Position { get; set; }
 
 		public Die()
 		{
 			Value = 0;
-			State = DieState.Unclicked;
+			Position = DieState.Unclicked;
 		}
 
 		public void RollDie(Random randomNumberGenerator)

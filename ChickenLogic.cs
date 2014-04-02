@@ -49,27 +49,27 @@ namespace GameArcadia
 		private void RollUnclickedDice()
 		{
 			for (var i = 0; i < 6; i++)
-				if (CurrentDice[i].State.Equals(DieState.Unclicked))
+				if (CurrentDice[i].Position.Equals(DieState.Unclicked))
 					CurrentDice[i].RollDie(randomNumberGenerator);
 		}
 
-		public DieState ChangeIfTheDieIsClicked(int stateOfDie)
+		public DieState ChangeIfTheDieIsClicked(int positionOfDie)
 		{
-			ChangeTheDiesClickedValue(stateOfDie);
-			return CurrentDice[stateOfDie].State;
+			ChangeTheDiesClickedValue(positionOfDie);
+			return CurrentDice[positionOfDie].Position;
 		}
 
-		public void ChangeTheDiesClickedValue(int stateOfDie)
+		public void ChangeTheDiesClickedValue(int positionOfDie)
 		{
-			if (CurrentDice[stateOfDie].State.Equals(DieState.Unclicked))
-				CurrentDice[stateOfDie].State = DieState.TemporarilySetAside;
-			else if (CurrentDice[stateOfDie].State.Equals(DieState.TemporarilySetAside))
-				CurrentDice[stateOfDie].State = DieState.Unclicked;
+			if (CurrentDice[positionOfDie].Position.Equals(DieState.Unclicked))
+				CurrentDice[positionOfDie].Position = DieState.TemporarilySetAside;
+			else if (CurrentDice[positionOfDie].Position.Equals(DieState.TemporarilySetAside))
+				CurrentDice[positionOfDie].Position = DieState.Unclicked;
 		}
 
-		public DieState FindDieState(int stateOfDie)
+		public DieState FindDiePosition(int positionOfDie)
 		{
-			return CurrentDice[stateOfDie].State;
+			return CurrentDice[positionOfDie].Position;
 		}
 		public void Roll()
 		{
