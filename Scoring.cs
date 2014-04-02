@@ -23,7 +23,7 @@ namespace GameArcadia
 		{
 			var numberSetAside = 0;
 			for (var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals(DieState.TemporarilySetAside))
+				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))
 					numberSetAside++;
 			return numberSetAside;
 		}
@@ -105,17 +105,17 @@ namespace GameArcadia
 
 		private static void SetOneToPermanentlySetAside(ChickenLogic thisGame, int dieNumber)
 		{
-			thisGame.CurrentDice[dieNumber].Position = DieState.PermanentlySetAside;
+			thisGame.CurrentDice[dieNumber].State = DieState.PermanentlySetAside;
 		}
 		private static void CheckForThreeOfAKind(ChickenLogic thisGame)
 		{
 			for (var i = 0; i < 4; i++)
-				if (thisGame.CurrentDice[i].Position.Equals(DieState.TemporarilySetAside))
+				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))
 					for (var j = i + 1; j < 5; j++)
-						if (thisGame.CurrentDice[j].Position.Equals(DieState.TemporarilySetAside) 
+						if (thisGame.CurrentDice[j].State.Equals(DieState.TemporarilySetAside) 
 							&& thisGame.CurrentDice[i].Value == thisGame.CurrentDice[j].Value)
 							for (var k = j + 1; k < 6; k++)
-								if (thisGame.CurrentDice[k].Position.Equals(DieState.TemporarilySetAside)
+								if (thisGame.CurrentDice[k].State.Equals(DieState.TemporarilySetAside)
 								    && thisGame.CurrentDice[i].Value == thisGame.CurrentDice[k].Value)
 								{
 									SetOneToPermanentlySetAside(thisGame, i);
@@ -133,7 +133,7 @@ namespace GameArcadia
 		private static void CheckForSingles(ChickenLogic thisGame)
 		{
 			for (var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals(DieState.TemporarilySetAside)
+				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside)
 				    && (thisGame.CurrentDice[i].Value == 1 || thisGame.CurrentDice[i].Value == 5))
 				{
 					SetOneToPermanentlySetAside(thisGame, i);
@@ -157,7 +157,7 @@ namespace GameArcadia
 		private static void SetDiceToUnclicked(ChickenLogic thisGame)
 		{
 			for ( var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].Position.Equals(DieState.TemporarilySetAside))
+				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))
 					thisGame.ChangeTheDiesClickedValue(i);
 		}
 	}
