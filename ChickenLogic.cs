@@ -13,9 +13,11 @@ namespace GameArcadia
 
 		public ChickenLogic()
 		{
-			NumberOfSetsOfRolls = -1;
+			NumberOfSetsOfRolls = 0;
 			Score = 0;
 			CurrentDice = new List<Die>();
+			for (var i = 0; i < 6; i++)
+				CurrentDice.Add(new Die());
 		}
 		public List<int> FindDiceValues()
 		{
@@ -31,15 +33,6 @@ namespace GameArcadia
 			 * Return to the MainWindow
 			 */
 
-		private void AddDice()
-		{
-			if (!CurrentDice.Any())
-			{
-				for (var i = 0; i < 6; i++)
-					CurrentDice.Add(new Die());
-			}
-		}
-
 		private void RollAllDice()
 		{
 			for (var i = 0; i < 6; i++)
@@ -52,13 +45,11 @@ namespace GameArcadia
 				if (CurrentDice[i].State.Equals(DieState.Unclicked))
 					CurrentDice[i].RollDie(randomNumberGenerator);
 		}
-
 		public DieState ChangeIfTheDieIsClicked(int stateOfDie)
 		{
 			ChangeTheDiesClickedValue(stateOfDie);
 			return CurrentDice[stateOfDie].State;
 		}
-
 		public void ChangeTheDiesClickedValue(int stateOfDie)
 		{
 			if (CurrentDice[stateOfDie].State.Equals(DieState.Unclicked))
@@ -66,18 +57,12 @@ namespace GameArcadia
 			else if (CurrentDice[stateOfDie].State.Equals(DieState.TemporarilySetAside))
 				CurrentDice[stateOfDie].State = DieState.Unclicked;
 		}
-
 		public DieState FindDieState(int stateOfDie)
 		{
 			return CurrentDice[stateOfDie].State;
 		}
 		public void Roll()
 		{
-			if (NumberOfSetsOfRolls == -1)
-			{
-				AddDice();
-				NumberOfSetsOfRolls++;
-			}
 			if (NumberOfSetsOfRolls == 0)
 			{
 				RollAllDice();
@@ -91,12 +76,10 @@ namespace GameArcadia
 				NumberOfSetsOfRolls++;
 			}
 		}
-
 		private void ReorderDice()
 		{
 			CurrentDice = CurrentDice.OrderBy(x => x.State).ToList();
 		}
-
 		public void ResetChickenLogic()
 		{
 			NumberOfSetsOfRolls = -1;
