@@ -45,7 +45,7 @@ namespace GameArcadia
 			if (isSixOfAKind)
 			{
 				SetAllToPermanentlySetAside(thisGame);
-				thisGame.Score += "5000";
+				thisGame.Score += 5000;
 			}
 		}
 
@@ -75,7 +75,7 @@ namespace GameArcadia
 			if (quantityOfFirstValue == 2 && quantityOfSecondValue == 2 && quantityOfThirdValue == 2)
 			{
 				SetAllToPermanentlySetAside(thisGame);
-				thisGame.Score +="1500 ";
+				thisGame.Score += 1500;
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace GameArcadia
 			if (thereIsOneOfEachValue)
 			{
 				SetAllToPermanentlySetAside(thisGame);
-				thisGame.Score +="3000 ";
+				thisGame.Score += 3000;
 			}
 		}
 
@@ -121,11 +121,11 @@ namespace GameArcadia
 									SetOneToPermanentlySetAside(thisGame, i);
 									SetOneToPermanentlySetAside(thisGame, j);
 									SetOneToPermanentlySetAside(thisGame, k);
-									string scoreToBeAdded;
+									int scoreToBeAdded;
 									if (thisGame.CurrentDice[i].Value == 1)
-										scoreToBeAdded = "1000 ";
+										scoreToBeAdded = 1000;
 									else
-										scoreToBeAdded = (thisGame.CurrentDice[i].Value * 100) + " ";
+										scoreToBeAdded = (thisGame.CurrentDice[i].Value * 100);
 									thisGame.Score += scoreToBeAdded;
 								}
 		}
@@ -138,9 +138,9 @@ namespace GameArcadia
 				{
 					SetOneToPermanentlySetAside(thisGame, i);
 					if (thisGame.CurrentDice[i].Value == 1)
-						thisGame.Score += "100 ";
+						thisGame.Score += 100;
 					else
-						thisGame.Score += "50 ";
+						thisGame.Score += 50;
 				}
 
 		}

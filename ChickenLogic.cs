@@ -9,12 +9,12 @@ namespace GameArcadia
 		readonly Random randomNumberGenerator = new Random();
 		public IList<Die> CurrentDice { get; private set; }
 		private int NumberOfSetsOfRolls { get; set; }
-		public string Score { get; set; }
+		public int Score { get; set; }
 
 		public ChickenLogic()
 		{
 			NumberOfSetsOfRolls = -1;
-			Score = "";
+			Score = 0;
 			CurrentDice = new List<Die>();
 		}
 		public List<int> FindDiceValues()
@@ -92,9 +92,16 @@ namespace GameArcadia
 			}
 		}
 
-		public void ReorderDice()
+		private void ReorderDice()
 		{
 			CurrentDice = CurrentDice.OrderBy(x => x.State).ToList();
+		}
+
+		public void ResetChickenLogic()
+		{
+			NumberOfSetsOfRolls = -1;
+			Score = 0;
+			CurrentDice = new List<Die>();
 		}
 	}
 }

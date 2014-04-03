@@ -6,6 +6,7 @@ using System.Windows.Media;
 
 namespace GameArcadia
 {
+
 	public partial class ChickenWindow
 	{
 		readonly ChickenLogic chickenLogic = new ChickenLogic();
@@ -25,8 +26,13 @@ namespace GameArcadia
 			chickenLogic.Roll();
 			SetDiceValues();
 			ChangeAllColorsToCorrectColor();
-			TempScoringLabel.Content = Convert.ToString(chickenLogic.Score);
-			IsScorable.Content = ScratchCheck.CheckIfThereIsSomethingToScore(chickenLogic);
+			if (ScratchCheck.CheckIfThereIsSomethingToScore(chickenLogic))
+				TempScoringLabel.Content = chickenLogic.Score;
+			else
+			{
+				chickenLogic.ResetChickenLogic();
+				TempScoringLabel.Content = chickenLogic.Score;
+			}
 		}
 
 		private void SetDiceValues()
