@@ -12,9 +12,7 @@
 			if (NumberToBeChecked(thisGame) >= 3)
 				if (CheckForThreeOfAKind(thisGame))
 					return true;
-			if (CheckForSingles(thisGame))
-				return true;
-			return false;
+			return CheckForSingles(thisGame);
 		}
 
 		private static int NumberToBeChecked(ChickenLogic thisGame)

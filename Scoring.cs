@@ -1,4 +1,5 @@
-﻿
+﻿using System.Linq;
+
 namespace GameArcadia
 {
 	static class ScoringClass
@@ -109,25 +110,19 @@ namespace GameArcadia
 		}
 		private static void CheckForThreeOfAKind(ChickenLogic thisGame)
 		{
-			for (var i = 0; i < 4; i++)
-				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))
-					for (var j = i + 1; j < 5; j++)
-						if (thisGame.CurrentDice[j].State.Equals(DieState.TemporarilySetAside) 
-							&& thisGame.CurrentDice[i].Value == thisGame.CurrentDice[j].Value)
-							for (var k = j + 1; k < 6; k++)
-								if (thisGame.CurrentDice[k].State.Equals(DieState.TemporarilySetAside)
-								    && thisGame.CurrentDice[i].Value == thisGame.CurrentDice[k].Value)
-								{
-									SetOneToPermanentlySetAside(thisGame, i);
-									SetOneToPermanentlySetAside(thisGame, j);
-									SetOneToPermanentlySetAside(thisGame, k);
-									int scoreToBeAdded;
-									if (thisGame.CurrentDice[i].Value == 1)
-										scoreToBeAdded = 1000;
-									else
-										scoreToBeAdded = (thisGame.CurrentDice[i].Value * 100);
-									thisGame.Score += scoreToBeAdded;
-								}
+			var dieGroups = thisGame.CurrentDice
+				.Where(die => die.State == DieState.TemporarilySetAside)
+				.GroupBy(die => die.Value);
+			foreach (var dieGroup in dieGroups)
+			{
+				if (dieGroup.Count() > 3)
+				{
+					foreach (var die in dieGroup)
+						die.State = DieState.PermanentlySetAside;
+					var dieValue = dieGroup.Key;
+					thisGame.Score += dieValue == 1 ? 1000: dieValue * 100;
+				}
+			}
 		}
 
 		private static void CheckForSingles(ChickenLogic thisGame)
