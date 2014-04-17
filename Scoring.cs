@@ -110,23 +110,22 @@ namespace GameArcadia
 		}
 		private static void CheckForThreeOfAKind(Turn thisGame)
 		{
-			var dieGroups = thisGame.CurrentDice
+			var groupsOfThree = thisGame.CurrentDice
 				.Where(die => die.State == DieState.TemporarilySetAside)
-				.GroupBy(die => die.Value);
-			foreach (var dieGroup in dieGroups)
-			{
-				if (dieGroup.Count() > 3)
-				{
-					var count = 0;
-					foreach (var die in dieGroup)
+				.GroupBy(die => die.Value)
+				.Where(dieGroup => dieGroup.Count() > 3)
+				.Select(dieGroup => 
+					new
 					{
-						count++;
-						if (count <= 3)
-							die.State = DieState.PermanentlySetAside;
-					}
-					var dieValue = dieGroup.Key;
-					thisGame.Score += dieValue == 1 ? 1000: dieValue * 100;
-				}
+						dieGroup.Key,
+						Dice = dieGroup.Take(3).ToList()
+					});
+			foreach (var dieGroup in groupsOfThree)
+			{
+				foreach(var die in dieGroup.Dice)
+					die.State = DieState.PermanentlySetAside;
+				var dieValue = dieGroup.Key;
+				thisGame.Score += dieValue == 1 ? 1000: dieValue * 100;
 			}
 		}
 
@@ -142,7 +141,6 @@ namespace GameArcadia
 					else
 						thisGame.Score += 50;
 				}
-
 		}
 
 		private static int CountQuantityOfAValue(int valueToBeChecked, Turn thisGame)
