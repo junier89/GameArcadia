@@ -8,6 +8,8 @@ namespace GameArcadia
 
 		public DieState State { get; set; }
 
+		private static readonly Random RandomNumberGenerator = new Random();
+
 		public Die()
 		{
 			Value = 0;
@@ -16,8 +18,7 @@ namespace GameArcadia
 
 		public void RollDie()
 		{
-			var randomNumberGenerator = new Random((int)DateTime.Now.Ticks);
-			Value = randomNumberGenerator.Next(1, 7);
+			Value = RandomNumberGenerator.Next(1, 7);
 		}
 	}
 }
