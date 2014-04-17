@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace GameArcadia
@@ -9,7 +8,7 @@ namespace GameArcadia
 
 	public partial class ChickenWindow
 	{
-		readonly ChickenLogic chickenLogic = new ChickenLogic();
+		private readonly Game game = new Game();
 		public ChickenWindow()
 		{
 			InitializeComponent();
@@ -23,75 +22,60 @@ namespace GameArcadia
 
 		private void RollTheDice(object sender, RoutedEventArgs e)
 		{
-			chickenLogic.Roll();
-			SetDiceValues();
-			ChangeAllColorsToCorrectColor();
-			if (ScratchCheck.CheckIfThereIsSomethingToScore(chickenLogic))
-				TempScoringLabel.Content = chickenLogic.Score;
-			else
-			{
-				chickenLogic.ResetChickenLogic();
-				TempScoringLabel.Content = chickenLogic.Score;
-			}
+			game.RollTheDice();
+			Redraw();
 		}
 
-		private void SetDiceValues()
+		private void DiceClickZero(object sender, RoutedEventArgs e)
 		{
-			var valuesOfTheDice = chickenLogic.FindDiceValues();
-			Die0.Content = valuesOfTheDice[0];
-			Die1.Content = valuesOfTheDice[1];
-			Die2.Content = valuesOfTheDice[2];
-			Die3.Content = valuesOfTheDice[3];
-			Die4.Content = valuesOfTheDice[4];
-			Die5.Content = valuesOfTheDice[5];
+			game.DieClick(0);
+			Redraw();
 		}
+
 		private void DiceClickOne(object sender, RoutedEventArgs e)
 		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 0);
+			game.DieClick(1);
+			Redraw();
 		}
 
-		private void DiceClickTwo(object sender, RoutedEventArgs e)
+		private void DieClickTwo(object sender, RoutedEventArgs e)
 		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 1);
+			game.DieClick(2);
+			Redraw();
 		}
 
 		private void DiceClickThree(object sender, RoutedEventArgs e)
 		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 2);
+			game.DieClick(3);
+			Redraw();
 		}
 
 		private void DiceClickFour(object sender, RoutedEventArgs e)
 		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 3);
+			game.DieClick(4);
+			Redraw();
 		}
 
 		private void DiceClickFive(object sender, RoutedEventArgs e)
 		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 4);
+			game.DieClick(5);
+			Redraw();
 		}
 
-		private void DiceClickSix(object sender, RoutedEventArgs e)
-		{
-			ChangeColorOnClickToCorrectColor(sender as Button, 5);
-		}
-		private void ChangeColorOnClickToCorrectColor(Button button, int index)
-		{
-			var postClickDieState = chickenLogic.ChangeIfTheDieIsClicked(index);
-			button.BorderBrush = GetColorForButtonBorder(postClickDieState);
-		}
-
-		private void ChangeAllColorsToCorrectColor()
+		private void Redraw()
 		{
 			var diceButtons = new [] { Die0, Die1, Die2, Die3, Die4, Die5 };
 			for (var index = 0; index < diceButtons.Count(); ++index)
 			{
 				var diceButton = diceButtons[index];
-				var dieState = chickenLogic.FindDieState(index);
-				diceButton.BorderBrush = GetColorForButtonBorder(dieState);
+				var dieState = game.FindDieState(index);
+				diceButton.BorderBrush = GetColorForDieButtonBorder(dieState);
+				diceButton.Content = game.FindDieValue(index);
 			}
+			TempScoringLabel.Content = game.GetTurnScore();
 		}
 
-		private Brush GetColorForButtonBorder(DieState dieState)
+		private Brush GetColorForDieButtonBorder(DieState dieState)
 		{
 			switch (dieState)
 			{

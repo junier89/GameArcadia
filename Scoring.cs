@@ -6,7 +6,7 @@ namespace GameArcadia
 	{
 		//Need to score each method and call the method
 
-		public static void ScoreAllSetAsideDice(ChickenLogic thisGame)
+		public static void ScoreAllSetAsideDice(Turn thisGame)
 		{
 			if (NumberToBeChecked(thisGame) == 6)
 			{
@@ -20,7 +20,7 @@ namespace GameArcadia
 			SetDiceToUnclicked(thisGame);
 		}
 
-		private static int NumberToBeChecked(ChickenLogic thisGame)
+		private static int NumberToBeChecked(Turn thisGame)
 		{
 			var numberSetAside = 0;
 			for (var i = 0; i < 6; i++)
@@ -29,7 +29,7 @@ namespace GameArcadia
 			return numberSetAside;
 		}
 
-		private static void CheckForSixOfAKind(ChickenLogic thisGame)
+		private static void CheckForSixOfAKind(Turn thisGame)
 		{
 			var numberToCheck = thisGame.CurrentDice[0].Value;
 			var isSixOfAKind = false;
@@ -51,7 +51,7 @@ namespace GameArcadia
 		}
 
 
-		private static void CheckForPairs(ChickenLogic thisGame)
+		private static void CheckForPairs(Turn thisGame)
 		{
 			var firstValue = thisGame.CurrentDice[0].Value;
 			var quantityOfFirstValue = CountQuantityOfAValue(firstValue, thisGame);
@@ -80,7 +80,7 @@ namespace GameArcadia
 			}
 		}
 
-		private static void CheckForRunOfSix(ChickenLogic thisGame)
+		private static void CheckForRunOfSix(Turn thisGame)
 		{
 			int[] quantityOfEachValue = {0, 0, 0, 0, 0, 0};
 			for (var i = 1; i <= 6; i++)
@@ -98,17 +98,17 @@ namespace GameArcadia
 			}
 		}
 
-		private static void SetAllToPermanentlySetAside(ChickenLogic thisGame)
+		private static void SetAllToPermanentlySetAside(Turn thisGame)
 		{
 			for (var i = 0; i < 6; i++)
 				SetOneToPermanentlySetAside(thisGame, i);
 		}
 
-		private static void SetOneToPermanentlySetAside(ChickenLogic thisGame, int dieNumber)
+		private static void SetOneToPermanentlySetAside(Turn thisGame, int dieNumber)
 		{
 			thisGame.CurrentDice[dieNumber].State = DieState.PermanentlySetAside;
 		}
-		private static void CheckForThreeOfAKind(ChickenLogic thisGame)
+		private static void CheckForThreeOfAKind(Turn thisGame)
 		{
 			var dieGroups = thisGame.CurrentDice
 				.Where(die => die.State == DieState.TemporarilySetAside)
@@ -117,15 +117,20 @@ namespace GameArcadia
 			{
 				if (dieGroup.Count() > 3)
 				{
+					var count = 0;
 					foreach (var die in dieGroup)
-						die.State = DieState.PermanentlySetAside;
+					{
+						count++;
+						if (count <= 3)
+							die.State = DieState.PermanentlySetAside;
+					}
 					var dieValue = dieGroup.Key;
 					thisGame.Score += dieValue == 1 ? 1000: dieValue * 100;
 				}
 			}
 		}
 
-		private static void CheckForSingles(ChickenLogic thisGame)
+		private static void CheckForSingles(Turn thisGame)
 		{
 			for (var i = 0; i < 6; i++)
 				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside)
@@ -140,7 +145,7 @@ namespace GameArcadia
 
 		}
 
-		private static int CountQuantityOfAValue(int valueToBeChecked, ChickenLogic thisGame)
+		private static int CountQuantityOfAValue(int valueToBeChecked, Turn thisGame)
 		{
 			var quantityOfValueToBeChecked = 0;
 			for (var i = 0; i < 6; i++)
@@ -149,7 +154,7 @@ namespace GameArcadia
 			return quantityOfValueToBeChecked;
 		}
 
-		private static void SetDiceToUnclicked(ChickenLogic thisGame)
+		private static void SetDiceToUnclicked(Turn thisGame)
 		{
 			for ( var i = 0; i < 6; i++)
 				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))

@@ -53,8 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ChickenLogic.cs" />
+    <Compile Include="Turn.cs" />
     <Compile Include="DieState.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Scoring.cs" />
     <Compile Include="ScratchCheck.cs" />
     <Page Include="ChickenWindow.xaml">

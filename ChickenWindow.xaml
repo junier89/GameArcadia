@@ -23,12 +23,12 @@
                 </StackPanel>
             </Expander>
         </StackPanel>
-        <Button x:Name="Die0" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickOne" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="Die1" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickTwo" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die2" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickThree" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickFour" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickFive" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickSix" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die0" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickZero" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button x:Name="Die1" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickOne" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die2" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieClickTwo" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickThree" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickFour" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DiceClickFive" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel>
             <Label Content="Current Score:" VerticalAlignment="Top"></Label>
             <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top"/>

@@ -2,7 +2,7 @@
 {
 	public static class ScratchCheck
 	{
-		public static bool CheckIfThereIsSomethingToScore(ChickenLogic thisGame)
+		public static bool CheckIfThereIsSomethingToScore(Turn thisGame)
 		{
 			if (NumberToBeChecked(thisGame) == 6)
 			{
@@ -15,7 +15,7 @@
 			return CheckForSingles(thisGame);
 		}
 
-		private static int NumberToBeChecked(ChickenLogic thisGame)
+		private static int NumberToBeChecked(Turn thisGame)
 		{
 			var numberSetAside = 0;
 			for (var i = 0; i < 6; i++)
@@ -24,7 +24,7 @@
 			return numberSetAside;
 		}
 
-		private static bool CheckForSixOfAKind(ChickenLogic thisGame)
+		private static bool CheckForSixOfAKind(Turn thisGame)
 		{
 			var numberToCheck = thisGame.CurrentDice[0].Value;
 			var isSixOfAKind = false;
@@ -41,7 +41,7 @@
 			return isSixOfAKind;
 		}
 
-		private static bool CheckForPairs(ChickenLogic thisGame)
+		private static bool CheckForPairs(Turn thisGame)
 		{
 			var isPairs = false;
 			var firstValue = thisGame.CurrentDice[0].Value;
@@ -69,7 +69,7 @@
 			return isPairs;
 		}
 
-		private static bool CheckForRunOfSix(ChickenLogic thisGame)
+		private static bool CheckForRunOfSix(Turn thisGame)
 		{
 			int[] quantityOfEachValue = { 0, 0, 0, 0, 0, 0 };
 			for (var i = 1; i <= 6; i++)
@@ -82,7 +82,7 @@
 					thereIsOneOfEachValue = false;
 			return thereIsOneOfEachValue;
 		}
-		private static bool CheckForThreeOfAKind(ChickenLogic thisGame)
+		private static bool CheckForThreeOfAKind(Turn thisGame)
 		{
 			for (var i = 0; i < 4; i++)
 				if (thisGame.CurrentDice[i].State.Equals(DieState.Unclicked))
@@ -96,7 +96,7 @@
 			return false;
 		}
 
-		private static bool CheckForSingles(ChickenLogic thisGame)
+		private static bool CheckForSingles(Turn thisGame)
 		{
 			for (var i = 0; i < 6; i++)
 				if (thisGame.CurrentDice[i].State.Equals(DieState.Unclicked)
@@ -104,7 +104,7 @@
 					return true;
 			return false;
 		}
-		private static int CountQuantityOfAValue(int valueToBeChecked, ChickenLogic thisGame)
+		private static int CountQuantityOfAValue(int valueToBeChecked, Turn thisGame)
 		{
 			var quantityOfValueToBeChecked = 0;
 			for (var i = 0; i < 6; i++)
