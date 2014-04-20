@@ -4,7 +4,7 @@ namespace GameArcadia
 {
 	class Game
 	{
-		private readonly Turn turn = new Turn();
+		private Turn turn = new Turn();
 
 		public int Score { get; private set; }
 

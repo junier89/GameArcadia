@@ -1,7 +1,8 @@
 ﻿<Window x:Class="GameArcadia.ChickenWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChickenWindow" Height="327" Width="400">
+        Title="ChickenWindow" Height="327" Width="400"
+        Loaded="ChickenWindow_OnLoaded">
     <DockPanel>
         <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
         </TextBlock>
