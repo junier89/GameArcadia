@@ -48,8 +48,19 @@ namespace GameArcadia
 		public void Roll()
 		{
 			ScoringClass.ScoreAllSetAsideDice(this);
-			RollUnclickedDice();
-			ReorderDice();
+			var setOfSetAsideDice = CurrentDice
+				.Where(die => die.State == DieState.PermanentlySetAside);
+			if (setOfSetAsideDice.Count() == 6)
+				for (var i = 0; i < 6; i++)
+				{
+					CurrentDice[i].RollDie();
+					CurrentDice[i].State = DieState.Unclicked;
+				}
+			else
+			{
+				RollUnclickedDice();
+				ReorderDice();
+			}
 			IsScorable = ScratchCheck.CheckIfThereIsSomethingToScore(this);
 		}
 		private void ReorderDice()
