@@ -8,26 +8,15 @@ namespace GameArcadia
 
 		public static void ScoreAllSetAsideDice(Turn thisGame)
 		{
-			if (NumberToBeChecked(thisGame) == 6)
-			{
-				CheckForSixOfAKind(thisGame);
-				CheckForPairs(thisGame);
-				CheckForRunOfSix(thisGame);
-			}
-			if (NumberToBeChecked(thisGame) >= 3)
-				CheckForThreeOfAKind(thisGame);
+			
+			CheckForSixOfAKind(thisGame);
+			CheckForPairs(thisGame);
+			CheckForRunOfSix(thisGame);
+			CheckForThreeOfAKind(thisGame);
 			CheckForSingles(thisGame);
 			SetDiceToUnclicked(thisGame);
 		}
 
-		private static int NumberToBeChecked(Turn thisGame)
-		{
-			var numberSetAside = 0;
-			for (var i = 0; i < 6; i++)
-				if (thisGame.CurrentDice[i].State.Equals(DieState.TemporarilySetAside))
-					numberSetAside++;
-			return numberSetAside;
-		}
 
 		private static void CheckForSixOfAKind(Turn thisGame)
 		{
