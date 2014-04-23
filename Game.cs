@@ -34,5 +34,9 @@ namespace GameArcadia
 		{
 			return turn.Score;
 		}
+		public bool GetIsScorable()
+		{
+			return turn.IsScorable;
+		}
 	}
 }

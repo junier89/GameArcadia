@@ -7,6 +7,7 @@ namespace GameArcadia
 	{
 		public IList<Die> CurrentDice { get; private set; }
 		public int Score { get; set; }
+		public bool IsScorable { get; set; }
 
 		public Turn()
 		{
@@ -49,6 +50,7 @@ namespace GameArcadia
 			ScoringClass.ScoreAllSetAsideDice(this);
 			RollUnclickedDice();
 			ReorderDice();
+			IsScorable = ScratchCheck.CheckIfThereIsSomethingToScore(this);
 		}
 		private void ReorderDice()
 		{

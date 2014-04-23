@@ -89,6 +89,7 @@ namespace GameArcadia
 					diceButton.Content = game.FindDieValue(index);
 				}
 				TempScoringLabel.Content = game.GetTurnScore();
+				IsScorable.Content = game.GetIsScorable();
 			}
 		}
 
