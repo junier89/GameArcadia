@@ -19,8 +19,6 @@ namespace GameArcadia
 			game = new Game();
 			game.RollTheDice();
 			Redraw();
-			//chickenLogic.StartOfAChickenGame();//Can I get the buttons in an array/list?
-			//This should make the dice visible
 		}
 
 		private void RollTheDice(object sender, RoutedEventArgs e)
@@ -69,20 +67,28 @@ namespace GameArcadia
 		{
 			if (game == null)
 			{
-				Die0.Visibility = Visibility.Hidden; //Draw a 'you haven't started playing yet' screen
+				var diceButtons = new[] { Die0, Die1, Die2, Die3, Die4, Die5 };
+				for (var index = 0; index < diceButtons.Count(); ++index)
+				{
+					var diceButton = diceButtons[index];
+					diceButton.Visibility = Visibility.Hidden;
+				}
+				InGameButtonPanel.IsEnabled = !IsEnabled;
+				//Draw a 'you haven't started playing yet' screen
 			}
 			else
 			{
+				InGameButtonPanel.IsEnabled = IsEnabled;
 				var diceButtons = new[] {Die0, Die1, Die2, Die3, Die4, Die5};
 				for (var index = 0; index < diceButtons.Count(); ++index)
 				{
 					var diceButton = diceButtons[index];
+					diceButton.Visibility = Visibility.Visible;
 					var dieState = game.FindDieState(index);
 					diceButton.BorderBrush = GetColorForDieButtonBorder(dieState);
 					diceButton.Content = game.FindDieValue(index);
 				}
 				TempScoringLabel.Content = game.GetTurnScore();
-				Die0.IsEnabled = false;
 			}
 		}
 

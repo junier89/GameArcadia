@@ -15,7 +15,7 @@
                     <Button>Quit</Button>
                 </StackPanel>
             </Expander>
-            <Expander IsExpanded ="True" Header ="Main Menu">
+            <Expander x:Name="InGameButtonPanel" IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
                     <Button Click="RollTheDice">Roll!</Button>
                     <Button>Stop!</Button>
