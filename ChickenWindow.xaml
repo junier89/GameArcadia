@@ -18,7 +18,7 @@
             <Expander x:Name="InGameButtonPanel" IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
                     <Button Click="RollTheDice">Roll!</Button>
-                    <Button>Stop!</Button>
+                    <Button x:Name="StopButton" Click="OnStop">Stop!</Button>
                     <Button>Chicken Out</Button>
                     <Button>Check Stats</Button>
                 </StackPanel>
@@ -34,7 +34,7 @@
             <Label Content="Current Score:" VerticalAlignment="Top"></Label>
             <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top"/>
             <Label Content="TotalScore:" Height="50" VerticalAlignment="Top"/>
-            <Label Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
+            <Label x:Name="TotalScoreLabel" Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
             <Label x:Name="IsScorable"></Label>
         </StackPanel>
     </DockPanel>

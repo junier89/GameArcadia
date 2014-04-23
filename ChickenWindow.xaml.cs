@@ -90,6 +90,11 @@ namespace GameArcadia
 				}
 				TempScoringLabel.Content = game.GetTurnScore();
 				IsScorable.Content = game.GetIsScorable();
+				TotalScoreLabel.Content = game.Score;
+				/*if (game.HasAchievedA500 == false && game.GetTurnScore() < 500)
+					StopButton.IsEnabled = !IsEnabled;
+				else
+					StopButton.IsEnabled = IsEnabled;*/
 			}
 		}
 
@@ -110,6 +115,12 @@ namespace GameArcadia
 
 		private void ChickenWindow_OnLoaded(object sender, RoutedEventArgs e)
 		{
+			Redraw();
+		}
+
+		private void OnStop(object sender, RoutedEventArgs e)
+		{
+			game.StopTheTurn();
 			Redraw();
 		}
 	}

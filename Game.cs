@@ -10,6 +10,15 @@ namespace GameArcadia
 
 		public int TurnNumber { get; private set; }
 
+		public bool HasAchievedA500 { get; set; }
+
+		public Game()
+		{
+			Score = 0;
+			TurnNumber = 0;
+			HasAchievedA500 = false;
+		}
+
 		public void RollTheDice()
 		{
 			turn.Roll();
@@ -37,6 +46,15 @@ namespace GameArcadia
 		public bool GetIsScorable()
 		{
 			return turn.IsScorable;
+		}
+
+		public void StopTheTurn()
+		{
+			ScoringClass.ScoreAllSetAsideDice(turn);
+			Score += turn.Score;
+			turn.IsScorable = true;
+			turn = new Turn();
+			turn.Roll();
 		}
 	}
 }
