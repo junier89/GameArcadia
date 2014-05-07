@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace GameArcadia
 {
-
 	public partial class ChickenWindow
 	{
 		private Game game;
+		private readonly IList<Button> diceButtons;
+
 		public ChickenWindow()
 		{
 			InitializeComponent();
+			diceButtons = new[] {Die0, Die1, Die2, Die3, Die4, Die5};
 		}
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
@@ -67,20 +71,24 @@ namespace GameArcadia
 		{
 			if (game == null)
 			{
-				var diceButtons = new[] { Die0, Die1, Die2, Die3, Die4, Die5 };
-				for (var index = 0; index < diceButtons.Count(); ++index)
+				foreach(var dieButton in diceButtons)
+					dieButton.Visibility = Visibility.Hidden;
+				InGameButtonPanel.IsEnabled = false;
+			}
+			else if (game.Score >= 5000)
+			{
+				for (var index = 0; index < diceButtons.Count(); ++index)//Make method
 				{
 					var diceButton = diceButtons[index];
 					diceButton.Visibility = Visibility.Hidden;
 				}
-				InGameButtonPanel.IsEnabled = !IsEnabled;
-				//Draw a 'you haven't started playing yet' screen
+				InGameButtonPanel.IsEnabled = false;
+				TotalScoreLabel.Content = game.Score;
 			}
 			else
 			{
-				InGameButtonPanel.IsEnabled = IsEnabled;
-				var diceButtons = new[] {Die0, Die1, Die2, Die3, Die4, Die5};
-				for (var index = 0; index < diceButtons.Count(); ++index)
+				InGameButtonPanel.IsEnabled = true;
+				for (var index = 0; index < diceButtons.Count(); ++index)//For each and method
 				{
 					var diceButton = diceButtons[index];
 					diceButton.Visibility = Visibility.Visible;

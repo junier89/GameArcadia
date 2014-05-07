@@ -4,16 +4,17 @@ namespace GameArcadia
 {
 	class Game
 	{
-		private Turn turn = new Turn();
+		private Turn turn;
 
 		public int Score { get; private set; }
 
-		public int TurnNumber { get; private set; }
+		public int TurnNumber { get; set; }
 
-		public bool HasAchievedA500 { get; set; }
+		private bool HasAchievedA500 { get; set; }
 
 		public Game()
 		{
+			turn = new Turn();
 			Score = 0;
 			TurnNumber = 0;
 			HasAchievedA500 = false;
@@ -55,6 +56,7 @@ namespace GameArcadia
 			turn.IsScorable = true;
 			turn = new Turn();
 			turn.Roll();
+			TurnNumber += 1;
 		}
 	}
 }
