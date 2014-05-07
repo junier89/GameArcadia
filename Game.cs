@@ -52,11 +52,30 @@ namespace GameArcadia
 		public void StopTheTurn()
 		{
 			ScoringClass.ScoreAllSetAsideDice(turn);
-			Score += turn.Score;
-			turn.IsScorable = true;
-			turn = new Turn();
-			turn.Roll();
-			TurnNumber += 1;
+			if (HasAchievedA500 == false) //@Ezra !HasAchievedA500?
+			{
+				if (turn.Score >= 500)
+				{
+					HasAchievedA500 = true;
+					Score += turn.Score;
+					turn.IsScorable = true;
+					turn = new Turn();
+					turn.Roll();
+					TurnNumber += 1;
+				}
+				else
+				{
+					turn.CheckAndReroll();
+				}
+			}
+			else
+			{
+				Score += turn.Score;
+				turn.IsScorable = true;
+				turn = new Turn();
+				turn.Roll();
+				TurnNumber += 1;
+			}
 		}
 	}
 }

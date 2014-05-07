@@ -71,24 +71,17 @@ namespace GameArcadia
 		{
 			if (game == null)
 			{
-				foreach(var dieButton in diceButtons)
-					dieButton.Visibility = Visibility.Hidden;
-				InGameButtonPanel.IsEnabled = false;
+				DisableButtons();
 			}
 			else if (game.Score >= 5000)
 			{
-				for (var index = 0; index < diceButtons.Count(); ++index)//Make method
-				{
-					var diceButton = diceButtons[index];
-					diceButton.Visibility = Visibility.Hidden;
-				}
-				InGameButtonPanel.IsEnabled = false;
+				DisableButtons();
 				TotalScoreLabel.Content = game.Score;
 			}
 			else
 			{
 				InGameButtonPanel.IsEnabled = true;
-				for (var index = 0; index < diceButtons.Count(); ++index)//For each and method
+				for (var index = 0; index < diceButtons.Count(); ++index)
 				{
 					var diceButton = diceButtons[index];
 					diceButton.Visibility = Visibility.Visible;
@@ -104,6 +97,13 @@ namespace GameArcadia
 				else
 					StopButton.IsEnabled = IsEnabled;*/
 			}
+		}
+
+		private void DisableButtons()
+		{
+			foreach (var dieButton in diceButtons)
+				dieButton.Visibility = Visibility.Hidden;
+			InGameButtonPanel.IsEnabled = false;
 		}
 
 		private Brush GetColorForDieButtonBorder(DieState dieState)

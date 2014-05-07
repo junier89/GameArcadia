@@ -48,6 +48,11 @@ namespace GameArcadia
 		public void Roll()
 		{
 			ScoringClass.ScoreAllSetAsideDice(this);
+			CheckAndReroll();
+		}
+
+		public void CheckAndReroll()
+		{
 			var setOfSetAsideDice = CurrentDice
 				.Where(die => die.State == DieState.PermanentlySetAside);
 			if (setOfSetAsideDice.Count() == 6)
@@ -63,6 +68,7 @@ namespace GameArcadia
 			}
 			IsScorable = ScratchCheck.CheckIfThereIsSomethingToScore(this);
 		}
+
 		private void ReorderDice()
 		{
 			CurrentDice = CurrentDice.OrderBy(x => x.State).ToList();
