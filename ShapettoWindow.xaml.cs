@@ -19,15 +19,21 @@ namespace GameArcadia
 	/// </summary>
 	public partial class ShapettoWindow : Window
 	{
+		public int NumberOfPlayers;
 		public ShapettoWindow()
 		{
+			NumberOfPlayers = 0;
 			InitializeComponent();
 		}
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			var shapettoGameSetup = new ShapettoGameSetup();
-			shapettoGameSetup.Show();
+			GameSetup.Visibility = Visibility.Visible;
+		}
+
+		private void StartClick(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }

@@ -23,5 +23,28 @@ namespace GameArcadia
 		{
 			InitializeComponent();
 		}
+
+		private void CancelClick(object sender, RoutedEventArgs e)
+		{
+			Close();
+		}
+
+		private void StartShapettoClick(object sender, RoutedEventArgs e)
+		{
+			var numberOfPlayers = 0;
+			if (TwoRadioButton.IsChecked == true)
+				numberOfPlayers = 2;
+			else if (TwoRadioButton.IsChecked == true)
+				numberOfPlayers = 3;
+			else if (FourRadioButton.IsChecked == true)
+				numberOfPlayers = 4;
+			else if (FiveRadioButton.IsChecked == true)
+				numberOfPlayers = 5;
+			if (numberOfPlayers != 0)
+			{
+				
+				Close();
+			}
+		}
 	}
 }
