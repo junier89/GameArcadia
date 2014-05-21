@@ -31,37 +31,37 @@ namespace GameArcadia
 			Redraw();
 		}
 
-		private void DiceClickZero(object sender, RoutedEventArgs e)
+		private void DieClickZero(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(0);
 			Redraw();
 		}
 
-		private void DiceClickOne(object sender, RoutedEventArgs e)
+		private void DieOneClick(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(1);
 			Redraw();
 		}
 
-		private void DieClickTwo(object sender, RoutedEventArgs e)
+		private void DieTwoClick(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(2);
 			Redraw();
 		}
 
-		private void DiceClickThree(object sender, RoutedEventArgs e)
+		private void DieThreeClick(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(3);
 			Redraw();
 		}
 
-		private void DiceClickFour(object sender, RoutedEventArgs e)
+		private void DieFourClick(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(4);
 			Redraw();
 		}
 
-		private void DiceClickFive(object sender, RoutedEventArgs e)
+		private void DieFiveClick(object sender, RoutedEventArgs e)
 		{
 			game.DieClick(5);
 			Redraw();
