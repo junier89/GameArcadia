@@ -53,12 +53,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DotWarsGame.cs" />
+    <Compile Include="DotWarsWindow.xaml.cs">
+      <DependentUpon>DotWarsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Turn.cs" />
     <Compile Include="DieState.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Scoring.cs" />
     <Compile Include="ScratchCheck.cs" />
     <Page Include="ChickenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DotWarsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

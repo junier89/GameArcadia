@@ -10,7 +10,7 @@ Game Arcadia
             <Expander IsExpanded ="True" Header ="Main Menu">
                 <StackPanel>
                     <Button Click="LoadChicken">Play Chicken</Button>
-                    <Button>Load Game</Button>
+                    <Button Content="Play Dot Wars" Click="LoadDotWars"></Button>
                     <Button>Save Game</Button>
                     <Button>Quit</Button>
                 </StackPanel>

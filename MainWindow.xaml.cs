@@ -18,5 +18,12 @@ namespace GameArcadia
 			chickenWindow.Show();
 			Close();
 		}
+
+		private void LoadDotWars(object sender, RoutedEventArgs e)
+		{
+			var DotWarsWindow = new DotWarsWindow();
+			DotWarsWindow.Show();
+			Close();
+		}
 	}
 }
