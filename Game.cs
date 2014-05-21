@@ -52,7 +52,7 @@ namespace GameArcadia
 		public void StopTheTurn()
 		{
 			ScoringClass.ScoreAllSetAsideDice(turn);
-			if (HasAchievedA500 == false) //@Ezra !HasAchievedA500?
+			if (!HasAchievedA500)
 			{
 				if (turn.Score >= 500)
 				{

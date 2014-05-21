@@ -8,7 +8,6 @@ namespace GameArcadia
 
 		public static void ScoreAllSetAsideDice(Turn thisGame)
 		{
-			
 			CheckForSixOfAKind(thisGame);
 			CheckForPairs(thisGame);
 			CheckForRunOfSix(thisGame);
