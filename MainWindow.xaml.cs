@@ -21,8 +21,15 @@ namespace GameArcadia
 
 		private void LoadDotWars(object sender, RoutedEventArgs e)
 		{
-			var DotWarsWindow = new DotWarsWindow();
-			DotWarsWindow.Show();
+			var dotWarsWindow = new DotWarsWindow();
+			dotWarsWindow.Show();
+			Close();
+		}
+
+		private void LoadShapetto(object sender, RoutedEventArgs e)
+		{
+			var shapettoWindow = new ShapettoWindow();
+			shapettoWindow.Show();
 			Close();
 		}
 	}

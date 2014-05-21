@@ -57,6 +57,12 @@
     <Compile Include="DotWarsWindow.xaml.cs">
       <DependentUpon>DotWarsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShapettoGameSetup.xaml.cs">
+      <DependentUpon>ShapettoGameSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShapettoWindow.xaml.cs">
+      <DependentUpon>ShapettoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Turn.cs" />
     <Compile Include="DieState.cs" />
     <Compile Include="Game.cs" />
@@ -86,6 +92,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShapettoGameSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShapettoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

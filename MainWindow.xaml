@@ -11,7 +11,7 @@ Game Arcadia
                 <StackPanel>
                     <Button Click="LoadChicken">Play Chicken</Button>
                     <Button Content="Play Dot Wars" Click="LoadDotWars"></Button>
-                    <Button>Save Game</Button>
+                    <Button Content="Play Shapetto" Click="LoadShapetto"/>
                     <Button>Quit</Button>
                 </StackPanel>
             </Expander>
