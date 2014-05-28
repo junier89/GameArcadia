@@ -21,11 +21,14 @@ namespace GameArcadia
 	{
 		public ColorettoGameSetup()
 		{
+			ColorettoWindow.NumberOfPlayers = 0;
 			InitializeComponent();
+			StartColorettoButton.IsEnabled = false;
 		}
 
 		private void CancelClick(object sender, RoutedEventArgs e)
 		{
+			ColorettoWindow.NumberOfPlayers = 0;
 			Close();
 		}
 
@@ -45,6 +48,30 @@ namespace GameArcadia
 				
 				Close();
 			}
+		}
+
+		private void TwoPlayerClick(object sender, RoutedEventArgs e)
+		{
+			ColorettoWindow.NumberOfPlayers = 2;
+			StartColorettoButton.IsEnabled = true;
+		}
+
+		private void ThreePlayerClick(object sender, RoutedEventArgs e)
+		{
+			ColorettoWindow.NumberOfPlayers = 3;
+			StartColorettoButton.IsEnabled = true;
+		}
+
+		private void FourPlayerClick(object sender, RoutedEventArgs e)
+		{
+			ColorettoWindow.NumberOfPlayers = 4;
+			StartColorettoButton.IsEnabled = true;
+		}
+
+		private void FivePlayerClick(object sender, RoutedEventArgs e)
+		{
+			ColorettoWindow.NumberOfPlayers = 5;
+			StartColorettoButton.IsEnabled = true;
 		}
 	}
 }

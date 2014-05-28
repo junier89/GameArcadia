@@ -5,12 +5,12 @@
 	<Grid>
 		<Label Content="How many players would you like in the game?" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
 		<StackPanel Margin="28,36,191,167">
-		    <RadioButton x:Name="TwoRadioButton" GroupName ="NumberOfPlayers" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="ThreeRadioButton" GroupName ="NumberOfPlayers" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="FourRadioButton" GroupName ="NumberOfPlayers" Content="4" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="FiveRadioButton" GroupName ="NumberOfPlayers" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		    <RadioButton x:Name="TwoRadioButton" GroupName ="NumberOfPlayers" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="TwoPlayerClick"/>
+            <RadioButton x:Name="ThreeRadioButton" GroupName ="NumberOfPlayers" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ThreePlayerClick"/>
+            <RadioButton x:Name="FourRadioButton" GroupName ="NumberOfPlayers" Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Click="FourPlayerClick"/>
+            <RadioButton x:Name="FiveRadioButton" GroupName ="NumberOfPlayers" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Click="FivePlayerClick"/>
         </StackPanel>
-        <Button Content="Start Coloretto" HorizontalAlignment="Left" Margin="50,222,0,0" VerticalAlignment="Top" Width="90" Click="StartColorettoClick"/>
+        <Button x:Name="StartColorettoButton" Content="Start Coloretto" HorizontalAlignment="Left" Margin="50,222,0,0" VerticalAlignment="Top" Width="90" Click="StartColorettoClick"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="145,222,0,0" VerticalAlignment="Top" Width="90" Click="CancelClick"/>
     </Grid>
 </Window>

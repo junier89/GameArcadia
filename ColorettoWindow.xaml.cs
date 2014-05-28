@@ -19,7 +19,7 @@ namespace GameArcadia
 	/// </summary>
 	public partial class ColorettoWindow : Window
 	{
-		public int NumberOfPlayers;
+		public static int NumberOfPlayers;
 		public ColorettoWindow()
 		{
 			NumberOfPlayers = 0;
