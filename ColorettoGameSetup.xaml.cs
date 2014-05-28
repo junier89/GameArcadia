@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace GameArcadia
 {
 	/// <summary>
-	/// Interaction logic for ShapettoGameSetup.xaml
+	/// Interaction logic for ColorettoGameSetup.xaml
 	/// </summary>
-	public partial class ShapettoGameSetup : Window
+	public partial class ColorettoGameSetup : Window
 	{
-		public ShapettoGameSetup()
+		public ColorettoGameSetup()
 		{
 			InitializeComponent();
 		}
