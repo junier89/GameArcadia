@@ -26,10 +26,10 @@ namespace GameArcadia
 			Close();
 		}
 
-		private void LoadShapetto(object sender, RoutedEventArgs e)
+		private void LoadColoretto(object sender, RoutedEventArgs e)
 		{
-			var shapettoWindow = new ShapettoWindow();
-			shapettoWindow.Show();
+			var colorettoWindow = new ColorettoWindow();
+			colorettoWindow.Show();
 			Close();
 		}
 

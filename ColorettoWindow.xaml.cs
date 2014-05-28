@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 namespace GameArcadia
 {
 	/// <summary>
-	/// Interaction logic for ShapettoWindow.xaml
+	/// Interaction logic for ColorettoWindow.xaml
 	/// </summary>
-	public partial class ShapettoWindow : Window
+	public partial class ColorettoWindow : Window
 	{
 		public int NumberOfPlayers;
-		public ShapettoWindow()
+		public ColorettoWindow()
 		{
 			NumberOfPlayers = 0;
 			InitializeComponent();
@@ -28,8 +28,8 @@ namespace GameArcadia
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			var shappettoGameSetup = new ShapettoGameSetup();
-			shappettoGameSetup.ShowDialog();
+			var colorettoGameSetup = new ColorettoGameSetup();
+			colorettoGameSetup.ShowDialog();
 		}
 	}
 }

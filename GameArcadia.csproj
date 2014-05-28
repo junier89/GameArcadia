@@ -60,11 +60,11 @@
     <Compile Include="OtherWindow.xaml.cs">
       <DependentUpon>OtherWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShapettoGameSetup.xaml.cs">
-      <DependentUpon>ShapettoGameSetup.xaml</DependentUpon>
+    <Compile Include="ColorettoGameSetup.xaml.cs">
+      <DependentUpon>ColorettoGameSetup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShapettoWindow.xaml.cs">
-      <DependentUpon>ShapettoWindow.xaml</DependentUpon>
+    <Compile Include="ColorettoWindow.xaml.cs">
+      <DependentUpon>ColorettoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Turn.cs" />
     <Compile Include="DieState.cs" />
@@ -99,11 +99,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShapettoGameSetup.xaml">
+    <Page Include="ColorettoGameSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShapettoWindow.xaml">
+    <Page Include="ColorettoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

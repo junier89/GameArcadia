@@ -29,7 +29,7 @@ namespace GameArcadia
 			Close();
 		}
 
-		private void StartShapettoClick(object sender, RoutedEventArgs e)
+		private void StartColorettoClick(object sender, RoutedEventArgs e)
 		{
 			var numberOfPlayers = 0;
 			if (TwoRadioButton.IsChecked == true)
