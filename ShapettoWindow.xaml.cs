@@ -28,7 +28,8 @@ namespace GameArcadia
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
 		{
-			GameSetup.Visibility = Visibility.Visible;
+			var shappettoGameSetup = new ShapettoGameSetup();
+			shappettoGameSetup.ShowDialog();
 		}
 
 		private void StartClick(object sender, RoutedEventArgs e)
