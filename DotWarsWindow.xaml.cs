@@ -23,6 +23,14 @@ namespace GameArcadia
 		public DotWarsWindow()
 		{
 			InitializeComponent();
+
+			var window = new OtherWindow
+			{
+				UserName = "Pick a username!"
+			};
+			window.ShowDialog();
+			var updatedUserName = window.UserName;
+			MessageBox.Show("hello, " + updatedUserName);
 		}
 
 		private void NewGameClick(object sender, RoutedEventArgs e)
