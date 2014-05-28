@@ -31,10 +31,5 @@ namespace GameArcadia
 			var shappettoGameSetup = new ShapettoGameSetup();
 			shappettoGameSetup.ShowDialog();
 		}
-
-		private void StartClick(object sender, RoutedEventArgs e)
-		{
-
-		}
 	}
 }
