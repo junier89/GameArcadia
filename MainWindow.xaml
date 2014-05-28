@@ -1,21 +1,16 @@
 ﻿<Window x:Class="GameArcadia.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <DockPanel>
-        <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="MainWindow" Height="350" Width="525">
+	<DockPanel>
+		<TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">
 Game Arcadia
-        </TextBlock>
-        <StackPanel DockPanel.Dock ="Left">
-            <Expander IsExpanded ="True" Header ="Main Menu">
-                <StackPanel>
-                    <Button Click="LoadChicken">Play Chicken</Button>
-                    <Button Content="Play Dot Wars" Click="LoadDotWars"></Button>
-                    <Button Content="Play Shapetto" Click="LoadShapetto"/>
-                    <Button>Quit</Button>
-                </StackPanel>
-            </Expander>
-        </StackPanel>
-        <StackPanel Background ="White"/>
+		</TextBlock>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="_Play Chicken" Click ="LoadChicken" />
+            <MenuItem Header="_Play Dot Wars" Click ="LoadDotWars"/>
+            <MenuItem Header="_Play Shapetto" Click ="LoadShapetto"/>
+            <MenuItem Header="_Help" />
+        </Menu>
     </DockPanel>
 </Window>
