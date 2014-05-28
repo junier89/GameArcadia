@@ -32,5 +32,10 @@ namespace GameArcadia
 			shapettoWindow.Show();
 			Close();
 		}
+
+		private void LoadHelp(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show("Help!");
+		}
 	}
 }

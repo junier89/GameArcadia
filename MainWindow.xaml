@@ -10,7 +10,7 @@ Game Arcadia
             <MenuItem Header="_Play Chicken" Click ="LoadChicken" />
             <MenuItem Header="_Play Dot Wars" Click ="LoadDotWars"/>
             <MenuItem Header="_Play Shapetto" Click ="LoadShapetto"/>
-            <MenuItem Header="_Help" />
+            <MenuItem Header="_Help" Click ="LoadHelp"/>
         </Menu>
     </DockPanel>
 </Window>
