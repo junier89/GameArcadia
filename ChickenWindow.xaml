@@ -6,16 +6,15 @@
     <DockPanel>
         <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
         </TextBlock>
-        <StackPanel DockPanel.Dock ="Left">
-            <Expander IsExpanded ="True" Header ="Main Menu">
-                <StackPanel>
-                    <Button Click="NewGameClick">New Game</Button>
-                    <Button>Load Game</Button>
-                    <Button>Save Game</Button>
-                    <Button>Quit</Button>
-                </StackPanel>
-            </Expander>
-            <Expander x:Name="InGameButtonPanel" IsExpanded ="True" Header ="Main Menu">
+        <Menu IsMainMenu="True" VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_NewGame" Click ="NewGameClick"/>
+            </MenuItem>
+            <MenuItem Header="_Help" />
+        </Menu>
+
+        <StackPanel DockPanel.Dock ="Bottom">
+            <Expander x:Name="InGameButtonPanel" IsExpanded ="True" Header ="Game Actions">
                 <StackPanel>
                     <Button Click="RollTheDice">Roll!</Button>
                     <Button x:Name="StopButton" Click="OnStop">Stop!</Button>
