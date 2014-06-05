@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ChickenWindow" Height="410" Width="397"
         Loaded="ChickenWindow_OnLoaded">
-    <DockPanel>
-        <TextBlock Background="Red" DockPanel.Dock ="Top" FontSize ="36">Chicken
+    <Grid>
+        <TextBlock Background="Red" FontSize ="36" Margin="-20,290,125,39">Chicken
         </TextBlock>
         <Menu IsMainMenu="True" VerticalAlignment="Top">
             <MenuItem Header="_File">
@@ -12,29 +12,20 @@
             </MenuItem>
             <MenuItem Header="_Help" />
         </Menu>
-
-        <StackPanel DockPanel.Dock ="Bottom">
-            <Expander x:Name="InGameButtonPanel" IsExpanded ="True" Header ="Game Actions">
-                <StackPanel>
-                    <Button Click="RollTheDice">Roll!</Button>
-                    <Button x:Name="StopButton" Click="OnStop">Stop!</Button>
-                    <Button>Chicken Out</Button>
-                    <Button>Check Stats</Button>
-                </StackPanel>
-            </Expander>
-        </StackPanel>
-        <Button x:Name="Die0" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieClickZero" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="Die1" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieOneClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die2" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieTwoClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die3" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieThreeClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die4" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieFourClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Die5" Content="0" Height="30" Margin="5,25,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieFiveClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <StackPanel>
-            <Label Content="Current Score:" VerticalAlignment="Top"></Label>
-            <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top"/>
-            <Label Content="TotalScore:" Height="50" VerticalAlignment="Top"/>
-            <Label x:Name="TotalScoreLabel" Content="Total goes here" Height="50" VerticalAlignment="Top"></Label>
-            <Label x:Name="IsScorable"></Label>
-        </StackPanel>
-    </DockPanel>
+        <Button Click="RollTheDice" Margin="215,92,44,246">Roll!</Button>
+        <Button x:Name="StopButton" Click="OnStop" Margin="206,170,84,160">Stop!</Button>
+        <Button Margin="10,186,262,135">Chicken Out</Button>
+        <Button Margin="10,122,290,198">Check Stats</Button>
+        <Button x:Name="Die0" Content="0" Height="30" Margin="180,60,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="25" Click="DieClickZero" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button x:Name="Die1" Content="0" Height="30" Margin="145,62,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieOneClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die2" Content="0" Height="30" Margin="110,62,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieTwoClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die3" Content="0" Height="30" Margin="75,62,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieThreeClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die4" Content="0" Height="30" Margin="40,60,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieFourClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Die5" Content="0" Height="30" Margin="5,60,0,0" MinWidth="30" MinHeight="30" HorizontalContentAlignment="Center" Width="30" Click="DieFiveClick" BorderBrush="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Current Score:" VerticalAlignment="Top"></Label>
+        <Label x:Name="TempScoringLabel" Content="Score goes here" Height="50" VerticalAlignment="Top" Margin="87,92,-87,0"/>
+        <Label Content="TotalScore:" Height="50" VerticalAlignment="Top" Margin="53,199,-53,0"/>
+        <Label x:Name="TotalScoreLabel" Content="Total goes here" Height="27" VerticalAlignment="Top" Margin="53,249,175,0"></Label>
+        <Label x:Name="IsScorable" Margin="29,122,314,237"></Label>
+    </Grid>
 </Window>
